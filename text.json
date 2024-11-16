@@ -1,0 +1,918 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Service categories fetched successfully",
+    "data": {
+        "servicecategories": [
+            {
+                "id": 1,
+                "category_name": "انترنیت",
+                "type": "nonsocial",
+                "service_category_sub_type_id": null,
+                "category_image_url": null,
+                "deleted_at": null,
+                "created_at": "2023-11-12T04:31:07.000000Z",
+                "updated_at": "2023-11-22T17:36:09.000000Z",
+                "services": [
+                    {
+                        "id": 1,
+                        "service_category_id": 1,
+                        "company_id": 1,
+                        "deleted_at": null,
+                        "created_at": "2023-11-12T04:33:06.000000Z",
+                        "updated_at": "2023-11-12T04:33:06.000000Z",
+                        "company": {
+                            "id": 1,
+                            "company_name": "AWcc",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1726725775_910.jpeg",
+                            "country_id": 9,
+                            "telegram_chat_id": 5,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T04:30:00.000000Z",
+                            "updated_at": "2024-10-26T11:33:49.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 2,
+                        "service_category_id": 1,
+                        "company_id": 3,
+                        "deleted_at": null,
+                        "created_at": "2023-11-12T18:06:38.000000Z",
+                        "updated_at": "2023-11-12T18:06:38.000000Z",
+                        "company": {
+                            "id": 3,
+                            "company_name": "Roshan",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994202_574.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 7,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T18:01:30.000000Z",
+                            "updated_at": "2024-10-16T15:11:31.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "service_category_id": 1,
+                        "company_id": 4,
+                        "deleted_at": null,
+                        "created_at": "2023-11-12T18:06:56.000000Z",
+                        "updated_at": "2023-11-12T18:06:56.000000Z",
+                        "company": {
+                            "id": 4,
+                            "company_name": "Etisalat",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994221_669.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 2,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T18:01:55.000000Z",
+                            "updated_at": "2024-10-16T15:11:39.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 6,
+                        "service_category_id": 1,
+                        "company_id": 21,
+                        "deleted_at": null,
+                        "created_at": "2023-11-12T18:07:18.000000Z",
+                        "updated_at": "2024-07-21T04:58:03.000000Z",
+                        "company": {
+                            "id": 21,
+                            "company_name": "MTN",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994834_215.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 4,
+                            "deleted_at": null,
+                            "created_at": "2024-07-06T17:45:52.000000Z",
+                            "updated_at": "2024-10-16T15:19:40.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 8,
+                        "service_category_id": 1,
+                        "company_id": 6,
+                        "deleted_at": null,
+                        "created_at": "2023-11-12T18:07:39.000000Z",
+                        "updated_at": "2023-11-12T18:07:39.000000Z",
+                        "company": {
+                            "id": 6,
+                            "company_name": "Salaam",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994264_501.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 6,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T18:02:36.000000Z",
+                            "updated_at": "2024-10-16T15:11:49.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 19,
+                        "service_category_id": 1,
+                        "company_id": 13,
+                        "deleted_at": null,
+                        "created_at": "2023-12-08T19:06:46.000000Z",
+                        "updated_at": "2023-12-08T19:06:46.000000Z",
+                        "company": {
+                            "id": 13,
+                            "company_name": "ایرانسل",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1702060256_307.png",
+                            "country_id": 10,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2023-12-08T18:30:56.000000Z",
+                            "updated_at": "2024-10-16T15:19:07.000000Z",
+                            "country": {
+                                "id": 10,
+                                "country_name": "Iran",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091880_210.png",
+                                "language_id": 1,
+                                "country_telecom_code": "+98",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:18:00.000000Z",
+                                "updated_at": "2024-10-16T15:18:00.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 21,
+                        "service_category_id": 1,
+                        "company_id": 14,
+                        "deleted_at": null,
+                        "created_at": "2023-12-08T19:07:27.000000Z",
+                        "updated_at": "2023-12-08T19:09:10.000000Z",
+                        "company": {
+                            "id": 14,
+                            "company_name": "همراه اول",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1702060309_290.jpeg",
+                            "country_id": 10,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2023-12-08T18:31:49.000000Z",
+                            "updated_at": "2024-10-16T15:19:15.000000Z",
+                            "country": {
+                                "id": 10,
+                                "country_name": "Iran",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091880_210.png",
+                                "language_id": 1,
+                                "country_telecom_code": "+98",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:18:00.000000Z",
+                                "updated_at": "2024-10-16T15:18:00.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 23,
+                        "service_category_id": 1,
+                        "company_id": 15,
+                        "deleted_at": null,
+                        "created_at": "2023-12-08T19:08:01.000000Z",
+                        "updated_at": "2023-12-08T19:08:01.000000Z",
+                        "company": {
+                            "id": 15,
+                            "company_name": "رایتل",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1702060326_242.jpeg",
+                            "country_id": 10,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2023-12-08T18:32:06.000000Z",
+                            "updated_at": "2024-10-16T15:19:27.000000Z",
+                            "country": {
+                                "id": 10,
+                                "country_name": "Iran",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091880_210.png",
+                                "language_id": 1,
+                                "country_telecom_code": "+98",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:18:00.000000Z",
+                                "updated_at": "2024-10-16T15:18:00.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 33,
+                        "service_category_id": 1,
+                        "company_id": 25,
+                        "deleted_at": null,
+                        "created_at": "2024-07-27T12:02:45.000000Z",
+                        "updated_at": "2024-07-27T12:02:45.000000Z",
+                        "company": {
+                            "id": 25,
+                            "company_name": "شاتل",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1722081694_839.png",
+                            "country_id": 3,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2024-07-27T12:01:34.000000Z",
+                            "updated_at": "2024-07-28T10:20:54.000000Z",
+                            "country": null
+                        }
+                    },
+                    {
+                        "id": 34,
+                        "service_category_id": 1,
+                        "company_id": 28,
+                        "deleted_at": null,
+                        "created_at": "2024-07-27T12:18:59.000000Z",
+                        "updated_at": "2024-07-27T12:18:59.000000Z",
+                        "company": {
+                            "id": 28,
+                            "company_name": "Turk telecom",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1722082707_115.png",
+                            "country_id": 5,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2024-07-27T12:18:27.000000Z",
+                            "updated_at": "2024-07-28T10:21:20.000000Z",
+                            "country": null
+                        }
+                    },
+                    {
+                        "id": 35,
+                        "service_category_id": 1,
+                        "company_id": 27,
+                        "deleted_at": null,
+                        "created_at": "2024-07-27T12:19:11.000000Z",
+                        "updated_at": "2024-07-27T12:19:11.000000Z",
+                        "company": {
+                            "id": 27,
+                            "company_name": "Vodafon",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1722082575_340.jpg",
+                            "country_id": 5,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2024-07-27T12:16:15.000000Z",
+                            "updated_at": "2024-07-28T10:21:12.000000Z",
+                            "country": null
+                        }
+                    },
+                    {
+                        "id": 36,
+                        "service_category_id": 1,
+                        "company_id": 26,
+                        "deleted_at": null,
+                        "created_at": "2024-07-27T12:19:28.000000Z",
+                        "updated_at": "2024-07-27T12:19:28.000000Z",
+                        "company": {
+                            "id": 26,
+                            "company_name": "Turk Cell",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1722082558_193.png",
+                            "country_id": 5,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2024-07-27T12:15:58.000000Z",
+                            "updated_at": "2024-07-28T10:21:04.000000Z",
+                            "country": null
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "category_name": "تماس ها",
+                "type": "nonsocial",
+                "service_category_sub_type_id": null,
+                "category_image_url": null,
+                "deleted_at": null,
+                "created_at": "2023-11-12T04:31:41.000000Z",
+                "updated_at": "2023-11-22T17:36:22.000000Z",
+                "services": [
+                    {
+                        "id": 3,
+                        "service_category_id": 2,
+                        "company_id": 3,
+                        "deleted_at": null,
+                        "created_at": "2023-11-12T18:06:46.000000Z",
+                        "updated_at": "2023-11-12T18:06:46.000000Z",
+                        "company": {
+                            "id": 3,
+                            "company_name": "Roshan",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994202_574.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 7,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T18:01:30.000000Z",
+                            "updated_at": "2024-10-16T15:11:31.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 5,
+                        "service_category_id": 2,
+                        "company_id": 4,
+                        "deleted_at": null,
+                        "created_at": "2023-11-12T18:07:04.000000Z",
+                        "updated_at": "2023-11-12T18:07:04.000000Z",
+                        "company": {
+                            "id": 4,
+                            "company_name": "Etisalat",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994221_669.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 2,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T18:01:55.000000Z",
+                            "updated_at": "2024-10-16T15:11:39.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 7,
+                        "service_category_id": 2,
+                        "company_id": 21,
+                        "deleted_at": null,
+                        "created_at": "2023-11-12T18:07:27.000000Z",
+                        "updated_at": "2024-07-21T04:58:42.000000Z",
+                        "company": {
+                            "id": 21,
+                            "company_name": "MTN",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994834_215.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 4,
+                            "deleted_at": null,
+                            "created_at": "2024-07-06T17:45:52.000000Z",
+                            "updated_at": "2024-10-16T15:19:40.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 9,
+                        "service_category_id": 2,
+                        "company_id": 6,
+                        "deleted_at": null,
+                        "created_at": "2023-11-12T18:07:46.000000Z",
+                        "updated_at": "2023-11-12T18:07:46.000000Z",
+                        "company": {
+                            "id": 6,
+                            "company_name": "Salaam",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994264_501.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 6,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T18:02:36.000000Z",
+                            "updated_at": "2024-10-16T15:11:49.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 10,
+                        "service_category_id": 2,
+                        "company_id": 1,
+                        "deleted_at": null,
+                        "created_at": "2023-11-12T18:08:00.000000Z",
+                        "updated_at": "2023-11-12T18:08:00.000000Z",
+                        "company": {
+                            "id": 1,
+                            "company_name": "AWcc",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1726725775_910.jpeg",
+                            "country_id": 9,
+                            "telegram_chat_id": 5,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T04:30:00.000000Z",
+                            "updated_at": "2024-10-26T11:33:49.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "category_name": "بسته های اجتماعی",
+                "type": "social",
+                "service_category_sub_type_id": null,
+                "category_image_url": null,
+                "deleted_at": null,
+                "created_at": "2023-11-12T04:32:29.000000Z",
+                "updated_at": "2024-01-06T19:41:52.000000Z",
+                "services": [
+                    {
+                        "id": 17,
+                        "service_category_id": 3,
+                        "company_id": 8,
+                        "deleted_at": null,
+                        "created_at": "2023-11-14T15:10:58.000000Z",
+                        "updated_at": "2023-11-14T15:10:58.000000Z",
+                        "company": {
+                            "id": 8,
+                            "company_name": "UC Pubg",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994277_17.png",
+                            "country_id": 2,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2023-11-14T15:10:10.000000Z",
+                            "updated_at": "2024-07-26T11:44:37.000000Z",
+                            "country": null
+                        }
+                    },
+                    {
+                        "id": 18,
+                        "service_category_id": 3,
+                        "company_id": 9,
+                        "deleted_at": null,
+                        "created_at": "2023-11-14T19:20:43.000000Z",
+                        "updated_at": "2023-11-14T19:20:43.000000Z",
+                        "company": {
+                            "id": 9,
+                            "company_name": "الماس ایمو",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994291_293.png",
+                            "country_id": 2,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2023-11-14T19:20:22.000000Z",
+                            "updated_at": "2024-07-26T11:44:51.000000Z",
+                            "country": null
+                        }
+                    },
+                    {
+                        "id": 25,
+                        "service_category_id": 3,
+                        "company_id": 16,
+                        "deleted_at": null,
+                        "created_at": "2023-12-22T06:52:26.000000Z",
+                        "updated_at": "2023-12-22T06:52:26.000000Z",
+                        "company": {
+                            "id": 16,
+                            "company_name": "الماس لایکی",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1722012950_396.png",
+                            "country_id": 2,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2023-12-22T06:51:39.000000Z",
+                            "updated_at": "2024-07-26T16:55:50.000000Z",
+                            "country": null
+                        }
+                    },
+                    {
+                        "id": 27,
+                        "service_category_id": 3,
+                        "company_id": 17,
+                        "deleted_at": null,
+                        "created_at": "2024-01-23T19:08:52.000000Z",
+                        "updated_at": "2024-01-23T19:08:52.000000Z",
+                        "company": {
+                            "id": 17,
+                            "company_name": "الماس بیگو لایو",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1722013158_185.png",
+                            "country_id": 2,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2023-12-22T09:45:54.000000Z",
+                            "updated_at": "2024-07-26T16:59:18.000000Z",
+                            "country": null
+                        }
+                    },
+                    {
+                        "id": 30,
+                        "service_category_id": 3,
+                        "company_id": 22,
+                        "deleted_at": null,
+                        "created_at": "2024-07-25T03:26:20.000000Z",
+                        "updated_at": "2024-07-25T03:26:20.000000Z",
+                        "company": {
+                            "id": 22,
+                            "company_name": "Clash of Clans Gem",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721877763_649.jpg",
+                            "country_id": 2,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2024-07-25T03:22:43.000000Z",
+                            "updated_at": "2024-07-26T16:59:47.000000Z",
+                            "country": null
+                        }
+                    },
+                    {
+                        "id": 32,
+                        "service_category_id": 3,
+                        "company_id": 24,
+                        "deleted_at": null,
+                        "created_at": "2024-07-26T15:04:29.000000Z",
+                        "updated_at": "2024-07-26T15:04:29.000000Z",
+                        "company": {
+                            "id": 24,
+                            "company_name": "Asaan",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1722006157_223.png",
+                            "country_id": 2,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2024-07-26T15:02:37.000000Z",
+                            "updated_at": "2024-07-26T15:02:37.000000Z",
+                            "country": null
+                        }
+                    },
+                    {
+                        "id": 37,
+                        "service_category_id": 3,
+                        "company_id": 29,
+                        "deleted_at": null,
+                        "created_at": "2024-08-04T02:33:05.000000Z",
+                        "updated_at": "2024-08-04T02:33:05.000000Z",
+                        "company": {
+                            "id": 29,
+                            "company_name": "Free fire",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1722739587_460.png",
+                            "country_id": 2,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2024-08-04T02:30:50.000000Z",
+                            "updated_at": "2024-08-04T02:46:27.000000Z",
+                            "country": null
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "category_name": "شارژ موبایل",
+                "type": "nonsocial",
+                "service_category_sub_type_id": null,
+                "category_image_url": null,
+                "deleted_at": null,
+                "created_at": "2023-11-13T18:01:57.000000Z",
+                "updated_at": "2023-11-22T17:37:55.000000Z",
+                "services": [
+                    {
+                        "id": 12,
+                        "service_category_id": 6,
+                        "company_id": 1,
+                        "deleted_at": null,
+                        "created_at": "2023-11-13T18:02:36.000000Z",
+                        "updated_at": "2023-11-13T18:02:36.000000Z",
+                        "company": {
+                            "id": 1,
+                            "company_name": "AWcc",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1726725775_910.jpeg",
+                            "country_id": 9,
+                            "telegram_chat_id": 5,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T04:30:00.000000Z",
+                            "updated_at": "2024-10-26T11:33:49.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 13,
+                        "service_category_id": 6,
+                        "company_id": 3,
+                        "deleted_at": null,
+                        "created_at": "2023-11-13T18:03:00.000000Z",
+                        "updated_at": "2023-11-13T18:03:00.000000Z",
+                        "company": {
+                            "id": 3,
+                            "company_name": "Roshan",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994202_574.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 7,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T18:01:30.000000Z",
+                            "updated_at": "2024-10-16T15:11:31.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 14,
+                        "service_category_id": 6,
+                        "company_id": 4,
+                        "deleted_at": null,
+                        "created_at": "2023-11-13T18:03:09.000000Z",
+                        "updated_at": "2023-11-13T18:03:09.000000Z",
+                        "company": {
+                            "id": 4,
+                            "company_name": "Etisalat",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994221_669.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 2,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T18:01:55.000000Z",
+                            "updated_at": "2024-10-16T15:11:39.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 15,
+                        "service_category_id": 6,
+                        "company_id": 21,
+                        "deleted_at": null,
+                        "created_at": "2023-11-13T18:03:21.000000Z",
+                        "updated_at": "2024-07-21T05:04:33.000000Z",
+                        "company": {
+                            "id": 21,
+                            "company_name": "MTN",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994834_215.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 4,
+                            "deleted_at": null,
+                            "created_at": "2024-07-06T17:45:52.000000Z",
+                            "updated_at": "2024-10-16T15:19:40.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 16,
+                        "service_category_id": 6,
+                        "company_id": 6,
+                        "deleted_at": null,
+                        "created_at": "2023-11-13T18:03:32.000000Z",
+                        "updated_at": "2023-11-13T18:03:32.000000Z",
+                        "company": {
+                            "id": 6,
+                            "company_name": "Salaam",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994264_501.png",
+                            "country_id": 9,
+                            "telegram_chat_id": 6,
+                            "deleted_at": null,
+                            "created_at": "2023-11-12T18:02:36.000000Z",
+                            "updated_at": "2024-10-16T15:11:49.000000Z",
+                            "country": {
+                                "id": 9,
+                                "country_name": "Afghanistan",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091464_585.jpeg",
+                                "language_id": 1,
+                                "country_telecom_code": "+93",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:11:04.000000Z",
+                                "updated_at": "2024-10-16T15:11:04.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 20,
+                        "service_category_id": 6,
+                        "company_id": 13,
+                        "deleted_at": null,
+                        "created_at": "2023-12-08T19:07:09.000000Z",
+                        "updated_at": "2023-12-08T19:07:09.000000Z",
+                        "company": {
+                            "id": 13,
+                            "company_name": "ایرانسل",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1702060256_307.png",
+                            "country_id": 10,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2023-12-08T18:30:56.000000Z",
+                            "updated_at": "2024-10-16T15:19:07.000000Z",
+                            "country": {
+                                "id": 10,
+                                "country_name": "Iran",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091880_210.png",
+                                "language_id": 1,
+                                "country_telecom_code": "+98",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:18:00.000000Z",
+                                "updated_at": "2024-10-16T15:18:00.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 22,
+                        "service_category_id": 6,
+                        "company_id": 14,
+                        "deleted_at": null,
+                        "created_at": "2023-12-08T19:07:46.000000Z",
+                        "updated_at": "2023-12-08T19:07:46.000000Z",
+                        "company": {
+                            "id": 14,
+                            "company_name": "همراه اول",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1702060309_290.jpeg",
+                            "country_id": 10,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2023-12-08T18:31:49.000000Z",
+                            "updated_at": "2024-10-16T15:19:15.000000Z",
+                            "country": {
+                                "id": 10,
+                                "country_name": "Iran",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091880_210.png",
+                                "language_id": 1,
+                                "country_telecom_code": "+98",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:18:00.000000Z",
+                                "updated_at": "2024-10-16T15:18:00.000000Z"
+                            }
+                        }
+                    },
+                    {
+                        "id": 24,
+                        "service_category_id": 6,
+                        "company_id": 15,
+                        "deleted_at": null,
+                        "created_at": "2023-12-08T19:08:16.000000Z",
+                        "updated_at": "2023-12-08T19:08:16.000000Z",
+                        "company": {
+                            "id": 15,
+                            "company_name": "رایتل",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1702060326_242.jpeg",
+                            "country_id": 10,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2023-12-08T18:32:06.000000Z",
+                            "updated_at": "2024-10-16T15:19:27.000000Z",
+                            "country": {
+                                "id": 10,
+                                "country_name": "Iran",
+                                "country_flag_image_url": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/country-flag/1729091880_210.png",
+                                "language_id": 1,
+                                "country_telecom_code": "+98",
+                                "phone_number_length": "10",
+                                "deleted_at": null,
+                                "created_at": "2024-10-16T15:18:00.000000Z",
+                                "updated_at": "2024-10-16T15:18:00.000000Z"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "category_name": "ارز دیجیتال",
+                "type": "social",
+                "service_category_sub_type_id": null,
+                "category_image_url": null,
+                "deleted_at": null,
+                "created_at": "2024-07-05T02:36:16.000000Z",
+                "updated_at": "2024-07-05T02:36:16.000000Z",
+                "services": [
+                    {
+                        "id": 31,
+                        "service_category_id": 7,
+                        "company_id": 23,
+                        "deleted_at": null,
+                        "created_at": "2024-07-25T10:00:14.000000Z",
+                        "updated_at": "2024-07-25T10:00:14.000000Z",
+                        "company": {
+                            "id": 23,
+                            "company_name": "USDT-TRC20",
+                            "company_logo": "https://app-api-bt-v1-24.watantelecom.com/storage/thumbnail_images/company/1721994500_808.png",
+                            "country_id": 2,
+                            "telegram_chat_id": 3,
+                            "deleted_at": null,
+                            "created_at": "2024-07-25T09:59:31.000000Z",
+                            "updated_at": "2024-07-26T11:48:20.000000Z",
+                            "country": null
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 9,
+                "category_name": "Mobile Data",
+                "type": "social",
+                "service_category_sub_type_id": null,
+                "category_image_url": null,
+                "deleted_at": null,
+                "created_at": "2024-10-23T05:24:03.000000Z",
+                "updated_at": "2024-10-23T05:24:03.000000Z",
+                "services": []
+            }
+        ]
+    },
+    "payload": []
+}
