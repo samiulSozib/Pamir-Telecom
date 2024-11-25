@@ -221,7 +221,7 @@ export default function PaginationTable() {
                       whiteSpace: 'nowrap',
                     }}>
                       <Typography variant="caption" sx={{ fontWeight: 'bold', fontSize: '10px'  }}>
-                      {subReseller.balance} {user_info.currency_preference_code}
+                      {subReseller.balance} {user_info.currency.code}
                       </Typography>
                     </Box>
 
@@ -304,7 +304,7 @@ export default function PaginationTable() {
                         <Paragraph>{subReseller.reseller_name}</Paragraph>
                       </Box>
                     </TableCell>
-                    <TableCell align="center" colSpan={2}>{subReseller.balance} {user_info.currency_preference_code}</TableCell>
+                    <TableCell align="center" colSpan={2}>{subReseller.balance} {user_info.currency.code}</TableCell>
                     <TableCell align="center" colSpan={2}>{subReseller.phone}</TableCell>
                     <TableCell align="center" colSpan={2}>
                       <IconButton onClick={() => handleOpenDialog(subReseller.id)}>

@@ -329,7 +329,7 @@ const AddForm = () => {
               fullWidth
               sx={{ mb: "16px" }}
             >
-              <MenuItem value={user_info.currency_preference_id}>{user_info.currency_preference_code}</MenuItem>
+              <MenuItem value={user_info.currency_preference_id}>{user_info.currency.code}</MenuItem>
             </TextField>
           </Grid>
         </Grid>

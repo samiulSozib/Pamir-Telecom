@@ -189,7 +189,7 @@ export default function PaginationTable() {
                       {t(`${transaction.status}`)}
                     </Typography>
                     <Typography variant="caption" sx={{ fontWeight: 'bold', fontSize: '10px'  }}>
-                    {user_info.currency_preference_code} {transaction.amount}
+                    {user_info.currency.code} {transaction.amount}
                     </Typography>
                   </Box>
                   
@@ -300,7 +300,7 @@ export default function PaginationTable() {
           open={openDetailsDialog} 
           onClose={handleCloseDetailsDialog} 
           transaction={selectedTransaction}
-          currency_preference_code={user_info.currency_preference_code}
+          currency_preference_code={user_info.currency.code}
         />
     </Box>
   );

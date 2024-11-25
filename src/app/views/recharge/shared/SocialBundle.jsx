@@ -160,6 +160,10 @@ export default function SocialBundle() {
   };
 
   const handleBundleSelect = (bundle) => {
+    if(number.length===0){
+      toast.error(t('ENTER_YOUR_NUMBER'))
+      return;
+    }
       setSelectedBundle(bundle);
       setModalOpen(true);
     
@@ -346,7 +350,7 @@ export default function SocialBundle() {
                             fontSize: '10px' // Set font size to 12px
                           }}
                         >
-                          {bundle.selling_price} {user_info.currency_preference_code}
+                          {bundle.selling_price} {user_info.currency.code}
                         </Typography>
                       </Box>
                       
@@ -379,7 +383,7 @@ export default function SocialBundle() {
                             fontSize: '10px' // Set font size to 12px
                           }}
                         >
-                          {visibleRows[index] ? `${bundle.buying_price} ${user_info.currency_preference_code}` : "****"}
+                          {visibleRows[index] ? `${bundle.buying_price} ${user_info.currency.code}` : "****"}
                         </Typography>
                       </Box>
                       
@@ -447,12 +451,12 @@ export default function SocialBundle() {
                         <Grid container spacing={2} marginTop={2}>
                           <Grid item xs={6} textAlign={isRtl ? 'right' : 'left'}>
                             <H6 style={{color:'green'}}>
-                              <strong>{t('SELL')} :</strong> {bundle.selling_price} {user_info.currency_preference_code}
+                              <strong>{t('SELL')} :</strong> {bundle.selling_price} {user_info.currency.code}
                             </H6>
                           </Grid>
                           <Grid item xs={6} textAlign={isRtl ? 'left' : 'right'}>
                             <H6 style={{color:'red'}}>
-                              <strong>{t('BUY')} :</strong> {bundle.buying_price} {user_info.currency_preference_code}
+                              <strong>{t('BUY')} :</strong> {bundle.buying_price} {user_info.currency.code}
                             </H6>
                           </Grid>
                         </Grid>

@@ -184,7 +184,7 @@ export default function PaginationTable() {
                         {t("SALE")}
                       </Typography>
                       <Typography color="textSecondary" fontSize={isSmallScreen ? '10px' : 'inherit'}>
-                        {order.bundle.selling_price} {user_info.currency_preference_code}
+                        {order.bundle.selling_price} {user_info.currency.code}
                       </Typography>
                     </Box>
                     <Box>
@@ -192,7 +192,7 @@ export default function PaginationTable() {
                         {t("BUY")}
                       </Typography>
                       <Typography color="textSecondary" fontSize={isSmallScreen ? '10px' : 'inherit'}>
-                        {order.bundle.buying_price} {user_info.currency_preference_code}
+                        {order.bundle.buying_price} {user_info.currency.code}
                       </Typography>
                     </Box>
                   </Box>
@@ -227,7 +227,7 @@ export default function PaginationTable() {
         open={modalOpen}
         onClose={handleClose}
         orderDetails={selectedOrder}
-        currency_preference_code={user_info.currency_preference_code}
+        currency_preference_code={user_info.currency.code}
       />
     </Box>
   );

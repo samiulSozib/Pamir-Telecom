@@ -79,12 +79,12 @@ export default function DashboardCard() {
               {Array.isArray(item.value)
                 ? item.value.map((data, idx) => (
                     <ValueText key={idx} sx={{ fontSize: { xs: '12px', sm: '12px', md: '16px', lg: '18px' } }}>
-                      {t(data.title)}: {data.val} {user_info.currency_preference_code}
+                      {t(data.title)}: {data.val} {user_info.currency.code}
                     </ValueText>
                   ))
                 : (
                     <ValueText sx={{ fontSize: { xs: '12px', sm: '12px', md: '16px', lg: '18px' } }}>
-                      {item.value} {user_info.currency_preference_code}
+                      {item.value} {user_info.currency.code}
                     </ValueText>
                   )
               }

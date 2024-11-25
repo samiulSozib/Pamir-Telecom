@@ -315,7 +315,7 @@ export default function ActionMenu({ subReseller,options }) {
               label="Currency"
               fullWidth
               variant="outlined"
-              value={user_info.currency_preference_code}
+              value={user_info.currency.code}
               sx={{
                 [isRtl ? 'ml' : 'mr']: 1, 
               }}

@@ -210,7 +210,7 @@ export default function TopSellingTable() {
             variant="caption"
             sx={{ fontWeight: "bold", fontSize: { xs: "10px", sm: "12px" } }}
           >
-            {order.bundle.selling_price} {user_info.currency_preference_code}
+            {order.bundle.selling_price} {user_info.currency.code}
           </Typography>
         </Box>
 
@@ -239,7 +239,7 @@ export default function TopSellingTable() {
               variant="caption"
               sx={{ fontWeight: "bold", fontSize: { xs: "10px", sm: "12px" } }}
             >
-              {order.bundle.buying_price} {user_info.currency_preference_code}
+              {order.bundle.buying_price} {user_info.currency.code}
             </Typography>
           </Box>
         )}
@@ -327,7 +327,7 @@ export default function TopSellingTable() {
           open={modalOpen} 
           onClose={handleClose} 
           orderDetails={selectedOrder}
-          currency_preference_code={user_info.currency_preference_code}
+          currency_preference_code={user_info.currency.code}
         />
       </Box>
     </Card>

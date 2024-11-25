@@ -99,7 +99,7 @@ export default function Analytics() {
         <Breadcrumb routeSegments={[ { name: t('DASHBOARD') }]} />
       </Box>
       <WhatsAppCard sx={{height:isSmallScreen?"60px":"80px"}}>
-        <AnimatedWhatsAppIcon sx={{cursor:"pointer"}} fontSize="large" onClick={() => window.open("https://wa.me//+905347869800", "_blank")}/>
+        <AnimatedWhatsAppIcon sx={{cursor:"pointer"}} fontSize="large" onClick={() => window.open("https://wa.me//+93745295227", "_blank")}/>
         <Marquee direction={isRtl ? "left" : "right"} speed={50} style={{color:"green",marginRight:"20px",marginLeft:"20px"}}>
         {advertisement_sliders.map((ad, index) => (
         <span key={ad.id} style={{ marginRight: "40px", fontWeight: "bold" }}>
@@ -108,7 +108,7 @@ export default function Analytics() {
         </span>
       ))}
         </Marquee>
-        <AnimatedWhatsAppIcon sx={{cursor:"pointer"}} fontSize="large" onClick={() => window.open("https://wa.me/+905347869800", "_blank")}/>
+        <AnimatedWhatsAppIcon sx={{cursor:"pointer"}} fontSize="large" onClick={() => window.open("https://wa.me/+93745295227", "_blank")}/>
       </WhatsAppCard>
       <Grid container spacing={3}>
         <Grid 
