@@ -35,7 +35,7 @@ export default function Brand({ children }) {
         <img src="/assets/images/telecom/pamir_telecom.jpeg" alt="My Logo" style={{ height: "40px" }} />
         <Link to="/dashboard/default" style={{ textDecoration: "none" }}>
           <StyledSpan mode={mode} className="sidenavHoverShow" sx={{ mr: isRtl ? "0.5rem" : "0", ml: isRtl ? "0" : "0.5rem" }}>
-          Pamir
+          Pamir Net
           </StyledSpan>
         </Link>
       </Box>
