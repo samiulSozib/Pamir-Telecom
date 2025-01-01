@@ -34,6 +34,8 @@ const Profile=Loadable(lazy(()=>import("app/views/profile/Profile")))
 // packages 
 const Packages=Loadable(lazy(()=>import("app/views/packages/Packages")))
 
+const CustomRecharge=Loadable(lazy(()=>import("app/views/custom_recharge/CustomRecharge")))
+
 
 const routes = [
   {
@@ -55,6 +57,7 @@ const routes = [
       { path: "/sub-reseller/add", element: <AddSubReseller /> },
       { path: "/recharge/default", element: <Recharge /> },
       { path: "/profile/default", element: <Profile /> },
+      { path: "/custom_recharge/default", element: <CustomRecharge /> },
     ]
   },
 

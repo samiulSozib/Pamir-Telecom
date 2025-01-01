@@ -39,7 +39,7 @@ i18next
     },
     backend: {
       // Use your API endpoint to load the language translations
-      loadPath: 'https://app-api-ab-v1-24.watantelecom.com/api/locale/{{lng}}',
+      loadPath: 'https://app-pn-api-v1-2024.pamirnet.com/api/locale/{{lng}}',
       parse: (data) => {
         const parsedData = JSON.parse(data);
         //console.log(parsedData.language_data)

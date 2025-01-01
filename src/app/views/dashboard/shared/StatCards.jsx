@@ -3,7 +3,7 @@ import { Small } from "app/components/Typography";
 import { serviceCategories } from '../../../redux/actions/serviceCategoriesAction';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { categorizeServices } from '../../../utils/utils';
+import { categorizeServices, categorizeServices1 } from '../../../utils/utils';
 import { useNavigate } from "react-router-dom";
 
 // STYLED COMPONENTS
@@ -48,7 +48,8 @@ export default function StatCards() {
   useEffect(() => {
     if (serviceCategoryList) {
       const categorized = categorizeServices(serviceCategoryList);
-      //console.log(categorized);
+      //const result=categorizeServices1(serviceCategoryList)
+      //console.log(result);
       setCategorizedServices(categorized);
     }
   }, [serviceCategoryList]);

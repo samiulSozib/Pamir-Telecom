@@ -179,8 +179,8 @@ export function categorizeServices(data) {
 
           const nonSocialCompanyInfo = {
             companyId: companyId,
-            companyName: service.company.company_name,
-            companycodes:service.company.companycodes
+            companyName: service?.company?.company_name||'',
+            companycodes:service?.company?.companycodes||''
           };
 
           // Add company info to the respective category
@@ -201,10 +201,58 @@ export function categorizeServices(data) {
       ...categoriesObject[categoryId]
     }));
   }
-  console.log(data)
+  //console.log(data)
 
   return categorized;
 }
+
+export function categorizeServices1(data) {
+  const nonsocial = {};
+
+  data.forEach(category => {
+    const type = category.type;
+    const categoryId = category.id;
+    const categoryName = category.category_name;
+
+    if (type !== "social") {
+      category.services.forEach(service => {
+        const country = service.company?.country?.country_name;
+        const countryId = service.company?.country_id;
+        const countryImage = service.company?.country?.country_flag_image_url;
+
+        if (!nonsocial[country]) {
+          nonsocial[country] = {
+            country_id: countryId,
+            countryImage: countryImage,
+            categories: {},
+          };
+        }
+
+        if (!nonsocial[country].categories[categoryId]) {
+          nonsocial[country].categories[categoryId] = {
+            categoryName: categoryName,
+            country_id: countryId,
+            countryImage: countryImage,
+          };
+        }
+      });
+    }
+  });
+
+  const nonsocialArray = Object.entries(nonsocial || {}).flatMap(([countryName, { country_id: countryId, countryImage, categories }]) => 
+    Object.entries(categories).map(([categoryId, { categoryName }]) => ({
+      countryName,
+      countryId,
+      countryImage,
+      categoryId,
+      categoryName
+    }))
+  );
+
+  console.log(nonsocialArray);
+  return nonsocialArray;
+}
+
 
 
 

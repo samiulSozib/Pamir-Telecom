@@ -3,7 +3,7 @@ import { H1, H2, H4, H6, Paragraph, Small } from "app/components/Typography";
 import { serviceCategories } from '../../../redux/actions/serviceCategoriesAction';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { categorizeServices } from '../../../utils/utils';
+import { categorizeServices, categorizeServices1 } from '../../../utils/utils';
 import { useNavigate } from "react-router-dom";
 import CustomCard from "./CustomCard";
 import { H3,H5 } from "app/components/Typography";
@@ -102,6 +102,7 @@ export default function StatCards() {
   useEffect(() => {
     if (serviceCategoryList) {
       const categorized = categorizeServices(serviceCategoryList);
+      categorizeServices1(serviceCategoryList)
       console.log(categorized);
       setCategorizedServices(categorized);
     }

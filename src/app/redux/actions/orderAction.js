@@ -8,15 +8,21 @@ import {
 
 
 
-export const getOrders=(page,items_per_page,filterStatus)=>{
+export const getOrders=(page,items_per_page,filterStatus,order_type)=>{
     return async (dispatch)=>{
         
         dispatch({type:ORDER_LIST_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const orders_url = `${base_url}/orders?page=${page}&items_per_page=${items_per_page}${
-                filterStatus ? `&order_status=${filterStatus}` : ''
-            }`;            
+            const orders_url = `${base_url}/orders?page=${page}&items_per_page=${items_per_page}` +
+  (filterStatus ? `&order_status=${filterStatus}` : '') +
+  (order_type ? `&order_type=${order_type}`: ``);
+
+
+
+
+
+           
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` 

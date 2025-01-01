@@ -10,7 +10,10 @@ import {
     RESET_RECHARGE_STATE,
     PIN_CONFIRMED,
     ORDER_PLACED,
-    CLEAR
+    CLEAR,
+    PLACE_CUSTOM_RECHARGE_REQUEST,
+    PLACE_CUSTOM_RECHARGE_SUCCESS,
+    PLACE_CUSTOM_RECHARGE_FAIL
 } from "../constants/rechargeConstant";
 
 export const confirmPin = (pin, bundle_id,rechargeble_account) => {
@@ -73,6 +76,42 @@ export const placeOrder = (bundle_id, rechargeble_account) => {
         }
     };
 };
+
+export const customRecharge=(countryId,rechargeble_account,amount)=>{
+    return async (dispatch) => {
+        dispatch({ type: PLACE_CUSTOM_RECHARGE_REQUEST });
+        
+        try {
+            const token = localStorage.getItem('token');
+            const place_recharge_url = `${base_url}/custom-recharge`;
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            };
+            const body = {
+                country_id: countryId,
+                rechargeble_account: rechargeble_account,
+                amount:amount
+            };
+            console.log(body)
+            //return;
+            const response = await axios.post(place_recharge_url, body, config);
+            const message = response.data.message;
+            console.log(response)
+
+            dispatch({ type: PLACE_CUSTOM_RECHARGE_SUCCESS, payload: message });
+            console.log(response)
+            
+
+        } catch (error) {
+            const errorMessage = error.response ? error.response.data.message : "An error occurred";
+            dispatch({ type: PLACE_CUSTOM_RECHARGE_FAIL, payload: errorMessage });
+            console.log(errorMessage)
+        }
+    };
+}
 
 
 

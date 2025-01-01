@@ -10,7 +10,10 @@ import {
     RESET_RECHARGE_STATE,
     PIN_CONFIRMED,
     ORDER_PLACED,
-    CLEAR
+    CLEAR,
+    PLACE_CUSTOM_RECHARGE_REQUEST,
+    PLACE_CUSTOM_RECHARGE_SUCCESS,
+    PLACE_CUSTOM_RECHARGE_FAIL
 } from "../constants/rechargeConstant";
 
 const initialState = {
@@ -37,7 +40,15 @@ const rechargeReducer = (state = initialState, action) => {
         case PLACE_ORDER_FAIL:
             return { ...state, loading: false, error: action.payload, message: null, pinConfirmed: false, orderPlaced: false };
 
-        case CLEAR:
+        case PLACE_CUSTOM_RECHARGE_REQUEST:
+            return { ...state, loading: true, error: null, message: null, orderPlaced: false };
+        case PLACE_CUSTOM_RECHARGE_SUCCESS:
+            return { ...state, loading: false, message: action.payload, error: null, orderPlaced: true };
+        case PLACE_CUSTOM_RECHARGE_FAIL:
+            return { ...state, loading: false, error: action.payload, message: null, orderPlaced: false };
+
+
+            case CLEAR:
             return {
                 ...state,
                 error: null,

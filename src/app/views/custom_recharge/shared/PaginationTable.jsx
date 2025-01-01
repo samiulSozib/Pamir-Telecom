@@ -61,7 +61,7 @@ export default function PaginationTable() {
   };
 
   useEffect(() => {
-    dispatch(getOrders(page + 1, rowsPerPage, filterStatus,""));
+    dispatch(getOrders(page + 1, rowsPerPage, filterStatus,"custom_recharge"));
   }, [dispatch, page, rowsPerPage, filterStatus]);
 
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
@@ -82,7 +82,7 @@ export default function PaginationTable() {
   
 
   return (
-    <Box elevation={3} dir={isRtl ? "rtl" : "ltr"} sx={{ p:"10px",marginTop:"-20px"}}>
+    <Box elevation={3} dir={isRtl ? "rtl" : "ltr"} sx={{ p:"10px",marginTop:"-10px"}}>
       <Box display="flex" justifyContent="flex-end" mb={1} >
         <FormControl size="small" sx={{ minWidth: 120, mr: "2px" }}>
           <InputLabel>{t("STATUS")}</InputLabel>
@@ -102,6 +102,7 @@ export default function PaginationTable() {
         <Grid container spacing={2}>
           {orderList.map((order, index) => {
             const { label, color, icon } = getStatusInfo(order.status);
+            if(order.order_type==="custom_recharge")
             return (
             <Grid
               key={index}
@@ -171,16 +172,7 @@ export default function PaginationTable() {
                   <Box mt={1} mb={1} borderBottom="1px solid lightgrey" />
 
                   <Box display="flex" justifyContent="space-between" mb={1}>
-                   
-                  <Box>
-                    <Typography variant="subtitle1" fontWeight="medium" fontSize={isSmallScreen ? '10px' : 'inherit'}>
-                      {t("TITLE")}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" fontSize={isSmallScreen ? '10px' : 'inherit'}>
-                      {order.bundle.bundle_title}
-                    </Typography>
-                  </Box>
-
+                    
                     <Box>
                       <Typography variant="subtitle1" fontWeight="medium" fontSize={isSmallScreen ? '10px' : 'inherit'}>
                         {t("SALE")}
@@ -198,19 +190,8 @@ export default function PaginationTable() {
                       </Typography>
                     </Box>
                   </Box>
-                    
-                  <Box display="flex" justifyContent="space-between">
-                    <Typography variant="body2" color="textSecondary" fontSize={isSmallScreen ? '10px' : 'inherit'}>
-                      {t(`${order.bundle.validity_type.toUpperCase()}`)}
-                    </Typography>
-                  </Box>
-                  {order.bundle.validity_type===""?(
-                    <Box display="flex" justifyContent="space-between">
-                    <Typography variant="body2" color="textSecondary" fontSize={isSmallScreen ? '10px' : 'inherit'}>
-                    &nbsp;
-                    </Typography>
-                  </Box>
-                  ):''}
+
+                  
                 </CardContent>
               </Card>
               </Paper>
