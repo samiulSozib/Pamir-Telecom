@@ -1,5 +1,4 @@
 import axios from "axios";
-import {base_url} from '../../utils/constant'
 import { 
     ORDER_LIST_REQUEST, 
     ORDER_LIST_SUCCESS, 
@@ -14,7 +13,7 @@ export const getOrders=(page,items_per_page,filterStatus,order_type)=>{
         dispatch({type:ORDER_LIST_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const orders_url = `${base_url}/orders?page=${page}&items_per_page=${items_per_page}` +
+            const orders_url = `${process.env.REACT_APP_BASE_URL}/orders?page=${page}&items_per_page=${items_per_page}` +
   (filterStatus ? `&order_status=${filterStatus}` : '') +
   (order_type ? `&order_type=${order_type}`: ``);
 

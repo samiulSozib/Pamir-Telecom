@@ -1,5 +1,4 @@
 import axios from "axios";
-import {base_url} from '../../utils/constant'
 import { 
     COUNTRY_LIST_REQUEST, 
     COUNTRY_LIST_SUCCESS, 
@@ -21,7 +20,7 @@ export const getCountries=()=>{
         dispatch({type:COUNTRY_LIST_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const countries_url=`${base_url}/countries`
+            const countries_url=`${process.env.REACT_APP_BASE_URL}/countries`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` 
@@ -45,7 +44,7 @@ export const getDistricts=()=>{
         dispatch({type:DISTRICT_LIST_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const districts_url=`${base_url}/districts`
+            const districts_url=`${process.env.REACT_APP_BASE_URL}/districts`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` 
@@ -69,7 +68,7 @@ export const getProvinces=()=>{
         dispatch({type:PROVINCE_LIST_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const provinces_url=`${base_url}/provinces`
+            const provinces_url=`${process.env.REACT_APP_BASE_URL}/provinces`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` 
@@ -93,7 +92,7 @@ export const getLanguages=()=>{
         dispatch({type:LANGUAGE_LIST_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const language_url=`${base_url}/languages`
+            const language_url=`${process.env.REACT_APP_BASE_URL}/languages`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` 

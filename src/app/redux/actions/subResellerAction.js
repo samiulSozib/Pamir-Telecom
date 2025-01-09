@@ -1,6 +1,5 @@
 import axios from "axios";
 import { toast } from 'react-toastify';
-import {base_url} from '../../utils/constant'
 import { 
     SUB_RESELLER_LIST_REQUEST, 
     SUB_RESELLER_LIST_SUCCESS, 
@@ -34,7 +33,7 @@ export const getSubReseller=()=>{
         dispatch({type:SUB_RESELLER_LIST_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const sub_reseller_url=`${base_url}/sub-resellers`
+            const sub_reseller_url=`${process.env.REACT_APP_BASE_URL}/sub-resellers`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` 
@@ -59,7 +58,7 @@ export const addSubReseller=(formData)=>{
         dispatch({type:ADD_SUB_RESELLER_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const sub_reseller_url=`${base_url}/sub-resellers`
+            const sub_reseller_url=`${process.env.REACT_APP_BASE_URL}/sub-resellers`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` ,
@@ -90,7 +89,7 @@ export const setSubResellerPassword = (sub_reseller_id, new_password,confirm_new
         try {
 
             const token = localStorage.getItem('token');
-            const setPasswordUrl = `${base_url}/sub-resellers/set-sub-reseller-password`;
+            const setPasswordUrl = `${process.env.REACT_APP_BASE_URL}/sub-resellers/set-sub-reseller-password`;
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -123,7 +122,7 @@ export const changeSubResellerBalance = (sub_reseller_id, newBalance,status_type
         try {
 
             const token = localStorage.getItem('token');
-            const changeBalanceUrl = `${base_url}/sub-reseller/transactions/credit-balance`;
+            const changeBalanceUrl = `${process.env.REACT_APP_BASE_URL}/sub-reseller/transactions/credit-balance`;
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -159,7 +158,7 @@ export const changeSubResellerStatus=(sub_reseller_id)=>{
         try{
             console.log("fdf")
             const token = localStorage.getItem('token');
-            const change_status_url=`${base_url}/sub-resellers/change-sub-reseller-status/${sub_reseller_id}`
+            const change_status_url=`${process.env.REACT_APP_BASE_URL}/sub-resellers/change-sub-reseller-status/${sub_reseller_id}`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` ,
@@ -188,7 +187,7 @@ export const deleteSubReseller=(sub_reseller_id)=>{
         try{
             console.log("fdf")
             const token = localStorage.getItem('token');
-            const delete_url=`${base_url}/sub-resellers/${sub_reseller_id}`
+            const delete_url=`${process.env.REACT_APP_BASE_URL}/sub-resellers/${sub_reseller_id}`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` ,
@@ -216,7 +215,7 @@ export const getSingleSubReseller=(sub_reseller_id)=>{
         dispatch({type:SINGLE_SUB_RESELLER_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const single_sub_reseller_url=`${base_url}/sub-resellers/${sub_reseller_id}`
+            const single_sub_reseller_url=`${process.env.REACT_APP_BASE_URL}/sub-resellers/${sub_reseller_id}`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` 

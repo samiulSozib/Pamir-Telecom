@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 
-const login_url=`${base_url}/login`
+const login_url=`${process.env.REACT_APP_BASE_URL}/login`
 
 export const signIn=(singInInfo)=>{
     return async (dispatch)=>{

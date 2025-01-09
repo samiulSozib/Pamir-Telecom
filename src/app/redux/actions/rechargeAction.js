@@ -1,5 +1,4 @@
 import axios from "axios";
-import { base_url } from '../../utils/constant';
 import { 
     PLACE_ORDER_REQUEST, 
     PLACE_ORDER_SUCCESS, 
@@ -22,7 +21,7 @@ export const confirmPin = (pin, bundle_id,rechargeble_account) => {
 
         try {
             const token = localStorage.getItem('token');
-            const confirm_pin_url = `${base_url}/confirm_pin?pin=${pin}`;
+            const confirm_pin_url = `${process.env.REACT_APP_BASE_URL}/confirm_pin?pin=${pin}`;
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -50,7 +49,7 @@ export const placeOrder = (bundle_id, rechargeble_account) => {
 
         try {
             const token = localStorage.getItem('token');
-            const place_order_url = `${base_url}/place_order`;
+            const place_order_url = `${process.env.REACT_APP_BASE_URL}/place_order`;
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -83,7 +82,7 @@ export const customRecharge=(countryId,rechargeble_account,amount)=>{
         
         try {
             const token = localStorage.getItem('token');
-            const place_recharge_url = `${base_url}/custom-recharge`;
+            const place_recharge_url = `${process.env.REACT_APP_BASE_URL}/custom-recharge`;
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}`,

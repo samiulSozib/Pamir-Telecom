@@ -1,5 +1,4 @@
 import axios from "axios";
-import {base_url} from '../../utils/constant'
 import { 
     TRANSACTION_LIST_REQUEST, 
     TRANSACTION_LIST_SUCCESS, 
@@ -14,7 +13,7 @@ export const getTransactions=(page,items_per_page)=>{
         dispatch({type:TRANSACTION_LIST_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const transaction_url=`${base_url}/balance_transactions? page=${page} & items_per_page=${items_per_page}`
+            const transaction_url=`${process.env.REACT_APP_BASE_URL}/balance_transactions? page=${page} & items_per_page=${items_per_page}`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` 

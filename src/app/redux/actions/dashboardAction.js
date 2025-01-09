@@ -14,7 +14,7 @@ export const dashboardData=()=>{
         dispatch({type:DASHBOARD_DATA_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const dashboard_data_url=`${base_url}/dashboard`
+            const dashboard_data_url=`${process.env.REACT_APP_BASE_URL}/dashboard`
 
             const config = {
                 headers: {
@@ -38,7 +38,7 @@ export const changePIN=(current_pin,new_pin)=>{
         dispatch({type:CHANGE_PIN_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const change_pin_url=`${base_url}/change_pin`
+            const change_pin_url=`${process.env.REACT_APP_BASE_URL}/change_pin`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` ,

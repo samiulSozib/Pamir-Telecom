@@ -1,5 +1,4 @@
 import axios from "axios";
-import {base_url} from '../../utils/constant'
 import { 
     SERVICE_LIST_REQUEST, 
     SERVICE_LIST_SUCCESS, 
@@ -14,7 +13,7 @@ export const getServices=(service_category_id,country_id)=>{
         dispatch({type:SERVICE_LIST_REQUEST})
         try{
             const token = localStorage.getItem('token');
-            const services_url=`${base_url}/services?service_category_id=${service_category_id}&country_id=${country_id}`
+            const services_url=`${process.env.REACT_APP_BASE_URL}/services?service_category_id=${service_category_id}&country_id=${country_id}`
             const config = {
                 headers: {
                     Authorization: `Bearer ${token}` 

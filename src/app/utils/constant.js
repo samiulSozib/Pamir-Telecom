@@ -4,4 +4,4 @@ export const navbarHeight = 60;
 export const sidenavCompactWidth = 80;
 export const containedLayoutWidth = 1200;
 
-export const base_url='https://app-pn-api-v1-2024.pamirnet.com/api/reseller'
+export const base_url=''

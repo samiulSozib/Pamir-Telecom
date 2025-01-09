@@ -20,7 +20,7 @@ export const getBundles=(page,items_per_page,country_id,validity_type,company_id
 
             const token = localStorage.getItem('token');
 
-            const bundle_url=`${base_url}/bundles?page=${page}&items_per_page=${items_per_page}&country_id=${country_id}&
+            const bundle_url=`${process.env.REACT_APP_BASE_URL}/bundles?page=${page}&items_per_page=${items_per_page}&country_id=${country_id}&
             validity_type=${validity_type}&company_id=${company_id}&service_category_id=${service_category_id}&search_tag=${search_tag}`            
             const config = {
                 headers: {
