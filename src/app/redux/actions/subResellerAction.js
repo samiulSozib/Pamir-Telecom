@@ -156,7 +156,7 @@ export const changeSubResellerStatus=(sub_reseller_id)=>{
         
         dispatch({type:CHANGE_SUB_RESELLER_STATUS_REQUEST})
         try{
-            console.log("fdf")
+            //console.log("fdf")
             const token = localStorage.getItem('token');
             const change_status_url=`${process.env.REACT_APP_BASE_URL}/sub-resellers/change-sub-reseller-status/${sub_reseller_id}`
             const config = {
@@ -185,7 +185,7 @@ export const deleteSubReseller=(sub_reseller_id)=>{
         
         dispatch({type:DELETE_SUB_RESELLER_REQUEST})
         try{
-            console.log("fdf")
+            //console.log("fdf")
             const token = localStorage.getItem('token');
             const delete_url=`${process.env.REACT_APP_BASE_URL}/sub-resellers/${sub_reseller_id}`
             const config = {
@@ -225,7 +225,7 @@ export const getSingleSubReseller=(sub_reseller_id)=>{
             const reseller=response.data.data
             
            
-            console.log(reseller)
+            //console.log(reseller)
             dispatch({type:SINGLE_SUB_RESELLER_SUCCESS,payload:{reseller}})
         }catch(error){
             dispatch({type:SINGLE_SUB_RESELLER_FAIL,payload:error.message})

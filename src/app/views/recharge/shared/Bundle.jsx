@@ -1,4 +1,4 @@
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import {Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Box,
   Card,
@@ -30,13 +30,14 @@ import {
   FormHelperText,
   Paper,
   useMediaQuery,
-  CardContent
+  CardContent,
+  Divider
 } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import DialpadIcon from '@mui/icons-material/Dialpad';
 import { Instagram, SportsBasketball, Twitter } from "@mui/icons-material";
 import { useMemo } from "react";
-import { H1, H3, H6, Paragraph, Span } from "app/components/Typography";
+import { H1, H3, H4, H5, H6, Paragraph, Span } from "app/components/Typography";
 import { useLocation } from "react-router-dom";
 import {getServices} from '../../../redux/actions/serviceAction'
 import {getBundles} from '../../../redux/actions/bundleAction'
@@ -108,12 +109,21 @@ const ImageListContainer = styled(Box)(() => ({
 const ImageContainer = styled(Box)(({ theme }) => ({
   width: 180,
   height: 150,
-  marginRight: 16,
+  marginRight: 2,
   display: "flex", // Enable flexbox
   alignItems: "center", // Center items vertically
   justifyContent: "center", // Center items horizontally
   borderRadius: "10px",
   overflow: "hidden",
+}));
+
+const Label = styled(Typography)(({ theme }) => ({
+  fontSize: "0.7rem",
+  color: theme.palette.text.secondary,
+}));
+const Value = styled(Typography)(({ theme }) => ({
+  fontSize: "0.7rem",
+  fontWeight: 500,
 }));
 
 
@@ -175,16 +185,21 @@ export default function Bundle() {
     dispatch(getServices(categoryId,countryId))
     dispatch(getBundles(page+1,rowsPerPage,countryId,validity,companyId,categoryId,searchTag))
     dispatch(getCountries())
-  },[dispatch,validity,companyId,searchTag,page,rowsPerPage])
+  },[dispatch,validity,companyId,searchTag,page,rowsPerPage,categoryId,countryId])
 
 
   useEffect(() => {
+    
     if (number.length >= 3) { 
       const matchedService = serviceList.find((service) =>
         service.company.companycodes.some((code) => 
           number.startsWith(code.reserved_digit)
         )
       );
+
+      
+
+      //console.log(matchedService.company.id===1)
   
       if (matchedService) {
         setCompanyId(matchedService.company.id);
@@ -199,7 +214,7 @@ export default function Bundle() {
   const filteredServiceList = useMemo(() => {
     if ((number.length<3 && number.length>=0)) return serviceList; // Return all services if no companyId is set
     return serviceList.filter(service => service.company.id === companyId);
-  }, [companyId, serviceList]);
+  }, [companyId, serviceList,number.length]);
 
   const handleVisibilityToggle = (index) => {
     setVisibleRows((prev) => ({
@@ -218,9 +233,12 @@ export default function Bundle() {
   };
 
   const handleBundleSelect = (bundle) => {
-    if(number.length===0){
-      toast.error(t('ENTER_YOUR_NUMBER'))
-    }
+    //if(number.length===0){
+      //toast.error(t('ENTER_YOUR_NUMBER'))
+      setSelectedBundle(bundle);
+      setModalOpen(true);
+    //}
+    //console.log(bundle)
     
     if (number.length >= 3) {
       
@@ -257,10 +275,14 @@ export default function Bundle() {
   const handleCloseModal=()=>{
     setModalOpen(false)
     setErrorMessage("")
+    setNumber('')
+    setPhoneNumberError("")
+    setSelectedBundle(null)
+
   }
 
   const checkPIN=()=>{
-    dispatch(confirmPin(pin,selectedBundle,number))
+    dispatch(confirmPin(pin,selectedBundle.id,number))
   }
 
   useEffect(()=>{
@@ -287,7 +309,7 @@ export default function Bundle() {
   const handleNumberChange = (e) => {
     const value = e.target.value;
     setNumber(value);
-    console.log(value.length)
+    //console.log(value.length)
   
     if (value.length === 0) {
       setPhoneNumberError("");  // Clear error if input is empty
@@ -297,14 +319,26 @@ export default function Bundle() {
       setPhoneNumberError("");  // Clear error if length is correct
     }
 
-    if (value.length >= 3) {
+    else if (value.length >= 3) {
       
       const prefix = value.substring(0, 3);
       const matchedService = serviceList.find(service =>
         service.company.companycodes.some(code => prefix.startsWith(code.reserved_digit))
       );
+
+      //console.log(matchedService.company.id)
+      //console.log(selectedBundle.service.company_id)
+
+      if(selectedBundle){
+        if(matchedService.company.id!==selectedBundle.service.company_id){
+          setPhoneNumberError(t('INVALID_PHONE'));
+        }else{
+          setPhoneNumberError("")
+        }
+      }
+      
   
-      if (!matchedService) {
+      else if (!matchedService) {
         setPhoneNumberError(t('INVALID_PHONE'));
       } else {
         setPhoneNumberError("");
@@ -543,7 +577,7 @@ export default function Bundle() {
             <ProductTable sx={{ padding: "1px" }}>
               <TableBody>
                 {bundleList.map((bundle, index) => (
-                  <Card key={index} sx={{cursor:"pointer", mb: 1,height:"70px",paddingBottom:"1px", opacity: 0.9}} onClick={() => handleBundleSelect(bundle.id)} >
+                  <Card key={index} sx={{cursor:"pointer", mb: 1,height:"70px",paddingBottom:"1px", opacity: 0.9}} onClick={() => handleBundleSelect(bundle)} >
                     <CardContent sx={{ display: 'flex',justifyContent:'space-between', alignItems: 'center', gap: 1 }}>
                       
                       {/* Logo Section */}
@@ -674,17 +708,18 @@ export default function Bundle() {
                     <Card 
                       sx={{ 
                         cursor:"pointer",
-                        maxHeight:"250px",
+                        maxHeight:"150px",
+                        minHeight:'150px',
                         textAlign: "center", 
                         padding: 2, 
-                        m: "2px", 
+                        m: "1px", 
                         display: 'flex', 
-                        flexDirection: 'column', 
+                        flexDirection: 'row', 
                         alignItems: 'center' ,
                       }}
-                      onClick={() => handleBundleSelect(bundle.id)} 
+                      onClick={() => handleBundleSelect(bundle)} 
                     >
-                      <ImageContainer>
+                      <ImageContainer flex={0.5}>
                         <img 
                           src={bundle.service.company.company_logo} 
                           alt="Company Logo" 
@@ -697,16 +732,28 @@ export default function Bundle() {
                           }} 
                         />
                       </ImageContainer>
+
+                      <Divider
+                        orientation="vertical"
+                        flexItem
+                        sx={{
+                          backgroundColor: 'black',  // Color of the line
+                          width: '1px',             // Thickness of the line
+                          marginX: '1px',               // Space around the line
+                        }}
+                      />
     
-                      <Box marginTop={2} width="100%" dir={isRtl ? 'rtl' : 'ltr'}>
-                        <Grid container spacing={2} justifyContent="center">
+                      <Box flex={1.5} marginTop={2} width="100%" dir={isRtl ? 'rtl' : 'ltr'}>
+                        <Grid container spacing={1} justifyContent="center">
                           <Grid item xs={12} textAlign={isRtl ? 'right' : 'center'}>
-                            <H3 style={{ marginTop: "16px" }}>
+                            <H4 style={{ marginTop: "16px" }}>
                               {bundle.bundle_title}
-                              <span 
+                              
+                            </H4>
+                            <H5><span 
                                 style={{
-                                  marginRight: isRtl ? '8px' : '0', 
-                                  marginLeft: isRtl ? '0' : '8px', 
+                                  marginRight: isRtl ? '4px' : '0', 
+                                  marginLeft: isRtl ? '0' : '4px', 
                                   fontWeight: "normal", 
                                   marginTop: isRtl ? '0' : '0', 
                                   marginBottom: '8px' // Add margin to create space
@@ -714,19 +761,18 @@ export default function Bundle() {
                               >
                                 {/* {bundle.validity_type.charAt(0).toUpperCase() + bundle.validity_type.slice(1)} */}
                                 {t(`${(bundle.validity_type).toUpperCase()}`)}
-                              </span>
-                            </H3>
+                              </span></H5>
                           </Grid>
                         </Grid>
     
-                        <Grid container spacing={2} marginTop={2}>
+                        <Grid container spacing={1} padding={1}>
                           <Grid item xs={6} textAlign={isRtl ? 'right' : 'left'}>
-                            <H6 style={{color:'green'}}>
+                            <H6 style={{color:'green',fontSize:'10px',whiteSpace:'nowrap',overflow:'hidden'}}>
                               <strong>{t('SELL')} :</strong> {bundle.selling_price} {user_info.currency.code}
                             </H6>
                           </Grid>
                           <Grid item xs={6} textAlign={isRtl ? 'left' : 'right'}>
-                            <H6 style={{color:'red'}}>
+                            <H6 style={{color:'red', fontSize:'10px',whiteSpace:'nowrap',overflow:'hidden'}}>
                               <strong>{t('BUY')} :</strong> {bundle.buying_price} {user_info.currency.code}
                             </H6>
                           </Grid>
@@ -775,7 +821,74 @@ export default function Bundle() {
           }}
         >
           <Typography variant="h6" mb={2}>{t('CONFIRM_YOUR_PIN')}</Typography>
+
           
+          
+          {selectedBundle && (
+            <Box sx={{
+              border: '1px solid black', // Define the border style, width, and color
+                borderRadius: '8px',       // Add rounded corners (optional)
+                padding: '5px',
+                marginBottom:'5px'
+              }}>
+              <Box display="flex" justifyContent="space-between" my={1}>
+                <Label sx={{ color: "black" }}>{t('BUNDLE_TITLE')}</Label>
+                <Value>{selectedBundle.bundle_title}</Value>
+              </Box>
+              <Box display="flex" justifyContent="space-between" my={1}>
+                <Label sx={{ color: "black" }}>{t('VALIDITY_TYPE')}</Label>
+                <Value>{selectedBundle.validity_type}</Value>
+              </Box>
+              <Box display="flex" justifyContent="space-between" my={1}>
+                <Label sx={{ color: "black" }}>{t('SELLING_PRICE')}</Label>
+                <Value>{user_info.currency.code} {selectedBundle.selling_price}</Value>
+              </Box>
+              <Box display="flex" justifyContent="space-between" my={1}>
+              <Label sx={{ color: "black" }}>{t('COMPANY')}</Label>
+                <img src={selectedBundle?.service?.company?.company_logo} width="32px" height="32px" alt="" />
+              </Box>
+              {/* user_info.currency.code */}
+            </Box>
+          )}
+          <TextField
+                  type="number"
+                  margin="dense"
+                  label={t('ENTER_YOUR_NUMBER')}
+                  size=""
+                  variant="outlined"
+                  fullWidth // Also use fullWidth for this TextField
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (value.length <= phoneNumberLength) { // Limit to phoneNumberLength
+                      handleNumberChange(e); // Call the original onChange handler
+                    }
+                  }}                  
+                  value={number}
+                  error={Boolean(phoneNumberError)}
+                  helperText={phoneNumberError} 
+                  required
+                  inputProps={{
+                    min: 0,
+                  }}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <DialpadIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                  sx={{
+                    '& input[type=number]': {
+                      // Hides the spinner in Chrome, Safari, Edge, and other WebKit browsers
+                      '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
+                        WebkitAppearance: 'none',
+                        margin: 0,
+                      },
+                      // Hides the spinner in Firefox
+                      MozAppearance: 'textfield',
+                    },
+                  }}
+                />
 
           {/* Input Box */}
           <TextField
@@ -831,14 +944,17 @@ export default function Bundle() {
             >
               {t('CANCEL')}
             </Button>
-          
+            
             <Button
               variant="contained"
               color="primary"
               onClick={checkPIN}
+              disabled={!!phoneNumberError || !number }
             >
               {t('VERIFY')}
             </Button>
+           
+            
           </Box>
           )}
           

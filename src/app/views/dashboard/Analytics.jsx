@@ -86,7 +86,7 @@ export default function Analytics() {
   
 
   useEffect(()=>{
-    console.log(advertisement_sliders)
+    //console.log(advertisement_sliders)
   },[dispatch,advertisement_sliders])
 
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));

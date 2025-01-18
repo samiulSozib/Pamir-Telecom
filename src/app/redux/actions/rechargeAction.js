@@ -30,7 +30,7 @@ export const confirmPin = (pin, bundle_id,rechargeble_account) => {
             const response = await axios.get(confirm_pin_url, config);
             const message = response.data.message;
 
-            console.log(response)
+            //console.log(response)
             dispatch({ type: CONFIRM_PIN_SUCCESS, payload: message });
             
 
@@ -62,7 +62,7 @@ export const placeOrder = (bundle_id, rechargeble_account) => {
             };
             const response = await axios.post(place_order_url, body, config);
             const message = response.data.message;
-            console.log(response)
+            //console.log(response)
 
             dispatch({ type: PLACE_ORDER_SUCCESS, payload: message });
 
@@ -94,20 +94,20 @@ export const customRecharge=(countryId,rechargeble_account,amount)=>{
                 rechargeble_account: rechargeble_account,
                 amount:amount
             };
-            console.log(body)
+            //console.log(body)
             //return;
             const response = await axios.post(place_recharge_url, body, config);
             const message = response.data.message;
-            console.log(response)
+            //console.log(response)
 
             dispatch({ type: PLACE_CUSTOM_RECHARGE_SUCCESS, payload: message });
-            console.log(response)
+            //console.log(response)
             
 
         } catch (error) {
             const errorMessage = error.response ? error.response.data.message : "An error occurred";
             dispatch({ type: PLACE_CUSTOM_RECHARGE_FAIL, payload: errorMessage });
-            console.log(errorMessage)
+            //console.log(errorMessage)
         }
     };
 }

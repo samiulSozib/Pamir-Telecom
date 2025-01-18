@@ -249,7 +249,7 @@ export function categorizeServices1(data) {
     }))
   );
 
-  console.log(nonsocialArray);
+  //console.log(nonsocialArray);
   return nonsocialArray;
 }
 

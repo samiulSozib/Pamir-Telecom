@@ -171,7 +171,7 @@ export default function Recharge() {
   
 
   useEffect(() => {
-    const selectedCountry = countries.find(country => country.id === parseInt());
+    const selectedCountry = countries.find(country => country.id === 9);
     
     if (selectedCountry) {
       
@@ -215,6 +215,10 @@ export default function Recharge() {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
   const handleRecharge=()=>{
+    if (!number || !amount) {
+      toast.error('Number and amount are required!');
+      return;
+    }
     Swal.fire({
           title: t('Confirm Recharge'),
           icon: "warning",
@@ -225,7 +229,7 @@ export default function Recharge() {
           cancelButtonText: t('CANCEL'),
         }).then((result) => {
           if (result.isConfirmed) {
-            dispatch(customRecharge(countryId,number,amount));
+            dispatch(customRecharge(9,number,amount));
           }
         });
   }
@@ -269,7 +273,7 @@ export default function Recharge() {
         <Card  sx={{ pt: "10px", mb: 3}}>
           <CardHeader>
             <Grid container spacing={1} direction="row" justifyContent="space-between" alignItems="center" >
-            <Grid item xs={12} sm={12} md={12} lg={6} xl={4}>
+            {/* <Grid item xs={12} sm={12} md={12} lg={6} xl={4}>
                 <ImageListContainer
                   sx={{
                     display: 'flex',
@@ -328,9 +332,9 @@ export default function Recharge() {
                 </ImageListContainer>
                 
 
-              </Grid>
+              </Grid> */}
               
-              <Grid item xs={12} sm={6} md={6} lg={3} xl={2}>
+              <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
                 <TextField
                   type="number"
                   margin="dense"
@@ -372,7 +376,7 @@ export default function Recharge() {
                 />
                 
               </Grid>
-              <Grid item xs={12} sm={6} md={6} lg={3} xl={2}>
+              <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
                 <TextField
                   margin="dense"
                   label={t('AMOUNT')}
@@ -390,7 +394,7 @@ export default function Recharge() {
                 />
               </Grid>
 
-              <Grid item xs={12} sm={6} md={6} lg={3} xl={2}>
+              <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
                 <Button
                   onClick={handleRecharge}
                   variant="contained"

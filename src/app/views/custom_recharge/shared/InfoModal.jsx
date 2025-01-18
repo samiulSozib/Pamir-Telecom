@@ -155,7 +155,7 @@ export default function InfoModal({ open, onClose, orderDetails, currency_prefer
       const imgData = canvas.toDataURL("image/png");
       
       // Debugging: To inspect the canvas content in the console
-      console.log(canvas);
+      //console.log(canvas);
   
       // Create a link to download the image
       const link = document.createElement("a");
@@ -191,7 +191,7 @@ export default function InfoModal({ open, onClose, orderDetails, currency_prefer
           files: [file],
         });
       } catch (error) {
-        console.error("Error sharing image:", error);
+        //console.error("Error sharing image:", error);
       }
     } else {
       alert("Sharing is not supported on this browser.");

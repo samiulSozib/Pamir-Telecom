@@ -29,7 +29,7 @@ export const getCountries=()=>{
             const response=await axios.get(countries_url,config)
             const {countries}=response.data.data
             
-            console.log(countries)
+            //console.log(countries)
             dispatch({type:COUNTRY_LIST_SUCCESS,payload:{countries}})
         }catch(error){
             dispatch({type:COUNTRY_LIST_FAIL,payload:error.message})

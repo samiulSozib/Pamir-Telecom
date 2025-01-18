@@ -83,8 +83,8 @@ const AddForm = () => {
 
   useEffect(() => {
     if ( message|| error) {
-      console.log(message)
-      console.log(error)
+      //console.log(message)
+      //console.log(error)
       if(message){
         Swal.fire({
           title: "Good job!",

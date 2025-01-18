@@ -32,7 +32,7 @@ export const getOrders=(page,items_per_page,filterStatus,order_type)=>{
             const total_items=response.data.payload.pagination.total_items
             
            
-            console.log(orders)
+            //console.log(orders)
             dispatch({type:ORDER_LIST_SUCCESS,payload:{orders,total_items}})
         }catch(error){
             dispatch({type:ORDER_LIST_FAIL,payload:error.message})
