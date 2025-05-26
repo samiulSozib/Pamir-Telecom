@@ -23,6 +23,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import CancelIcon from '@mui/icons-material/Cancel';
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import InfoModal1 from "./InfoModal1";
 
 
 export default function PaginationTable() {
@@ -232,11 +233,12 @@ export default function PaginationTable() {
       </Box>
 
       {/* Modal */}
-      <InfoModal
+      <InfoModal1
         open={modalOpen}
         onClose={handleClose}
         orderDetails={selectedOrder}
         currency_preference_code={user_info.currency.code}
+        user_info={user_info}
       />
     </Box>
   );

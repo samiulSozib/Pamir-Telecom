@@ -55,6 +55,7 @@ const InternalLink = styled(Box)(({ theme }) => ({
 }));
 
 const StyledText = styled(Span)(({ mode }) => ({
+  fontFamily: 'iranyekan, Arial, sans-serif',
   fontSize: "0.875rem",
   paddingLeft: "0.8rem",
   display: mode === "compact" && "none"

@@ -65,7 +65,6 @@ const Value = styled(Typography)(({ theme }) => ({
 
 const Small = styled("small")(({ bgcolor }) => ({
   width: 'fit-content',
-  color: "#fff",
   padding: "2px 8px",
   borderRadius: "4px",
   background: bgcolor,
@@ -98,7 +97,7 @@ export default function InfoModal({ open, onClose, orderDetails, currency_prefer
             <HeaderIcon>
               <HourglassEmptyIcon color="warning" />
             </HeaderIcon>
-            <Small bgcolor="#f0ad4e">Pending</Small>
+            <Small bgcolor="#f0ad4e">{t('PENDING')}</Small>
           </>
         );
       case 1:
@@ -107,7 +106,7 @@ export default function InfoModal({ open, onClose, orderDetails, currency_prefer
             <HeaderIcon>
               <CheckCircleIcon color="success" />
             </HeaderIcon>
-            <Small bgcolor="#5cb85c">CONFIRMED</Small>
+            <Small bgcolor="#5cb85c">{t('CONFIRMED')}</Small>
           </>
         );
       case 2:
@@ -116,7 +115,7 @@ export default function InfoModal({ open, onClose, orderDetails, currency_prefer
             <HeaderIcon>
               <ErrorOutlineIcon color="error" />
             </HeaderIcon>
-            <Small bgcolor="#d9534f">REJECTED</Small>
+            <Small bgcolor="#d9534f">{t('REJECTED')}</Small>
           </>
         );
       default:

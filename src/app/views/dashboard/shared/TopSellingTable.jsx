@@ -25,6 +25,7 @@ import { useEffect, useState } from "react";
 import { format } from 'date-fns';
 import InfoModal from "app/views/order/shared/InfoModal";
 import { useTranslation } from "react-i18next";
+import InfoModal1 from "app/views/order/shared/InfoModal1";
 
 // STYLED COMPONENTS
 const CardHeader = styled(Box)(() => ({
@@ -323,11 +324,12 @@ export default function TopSellingTable() {
           backIconButtonProps={{ "aria-label": "Previous Page" }}
         />
 
-        <InfoModal 
+        <InfoModal1 
           open={modalOpen} 
           onClose={handleClose} 
           orderDetails={selectedOrder}
           currency_preference_code={user_info.currency.code}
+          user_info={user_info}
         />
       </Box>
     </Card>

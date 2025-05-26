@@ -35,7 +35,7 @@ export default function Order() {
 
   return (
     <Fragment>
-      <ContentBox className="analytics">
+      <ContentBox className="analytics" >
       <Box className="breadcrumb" display="flex" alignItems="center">
         <IconButton onClick={handleBack} color="primary">
             {isRtl?<ArrowForward/>:<ArrowBack/>}

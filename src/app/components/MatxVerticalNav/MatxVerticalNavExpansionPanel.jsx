@@ -64,6 +64,7 @@ const BulletIcon = styled("div")(({ theme }) => ({
 }));
 
 const ItemText = styled("span")(() => ({
+  fontFamily: 'iranyekan, Arial, sans-serif',
   fontSize: "0.875rem",
   paddingLeft: "0.8rem",
   verticalAlign: "middle"

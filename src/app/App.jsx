@@ -9,7 +9,7 @@ import SettingsProvider from "./contexts/SettingsContext";
 // ROUTES
 import routes from "./routes";
 // FAKE SERVER
-import "../fake-db";
+// import "../fake-db";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 
@@ -26,6 +26,8 @@ export default function App() {
     // You may also set this as a data attribute on the body for further customization
     document.body.setAttribute("dir", direction);
   }, [i18n.language]);
+
+  
 
   return (
           <SettingsProvider>
