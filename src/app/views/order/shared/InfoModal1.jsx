@@ -206,7 +206,8 @@ export default function InfoModal1({
         </Box>
       )}
 
-      <Box ref={imageRef} sx={{ p: isMobile ? 0 : 2 }}>
+      <Box  sx={{ p: isMobile ? 0 : 2 }}>
+        <Box ref={imageRef}>
         <DialogTitle sx={{ textAlign: "center", p: 2 }}>
           {/* Added Logo Container */}
           <LogoContainer>
@@ -334,7 +335,7 @@ export default function InfoModal1({
             Best Telecom and Social Packages provider
           </Typography>
         </DialogContent>
-
+      </Box>
         <DialogActions sx={{ p: 2 }}>
           <Box display="flex" justifyContent="space-between" width="100%">
             <ActionButton
@@ -360,6 +361,7 @@ export default function InfoModal1({
             </ActionButton>
           </Box>
         </DialogActions>
+        
       </Box>
     </StyledDialog>
   );
