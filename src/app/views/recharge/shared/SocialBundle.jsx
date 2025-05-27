@@ -222,11 +222,10 @@ export default function SocialBundle() {
   return (
     <Card sx={{ pt: "20px", mb: 3 }}>
       
-      <Paper elevation={5}>
+      {/* <Paper elevation={5}>
         <Card sx={{ pt: "20px", mb: 3 }}>
           <CardHeader>
             <Grid container spacing={2} direction="row" justifyContent="center" alignItems="center">
-              {/* <Grid item xs={12} sm={6} md={6} lg={2} xl={2}><Title>{t('RECHARGE')}</Title></Grid> */}
               <Grid item xs={12} sm={6} md={6} lg={5} xl={5}>
               <TextField
                   margin="dense"
@@ -279,7 +278,7 @@ export default function SocialBundle() {
             </Grid>
           </CardHeader>
         </Card>
-      </Paper>
+      </Paper> */}
       
 
 
@@ -326,7 +325,8 @@ export default function SocialBundle() {
                             fontSize: '10px' // Set font size to 12px
                           }}
                         >
-                          {bundle.validity_type.charAt(0).toUpperCase() + bundle.validity_type.slice(1)}
+                        {bundle?.validity_type ? t(bundle.validity_type.toUpperCase()) : ""}
+
                         </Typography>
                       </Box>
                       </Box>
@@ -452,7 +452,7 @@ export default function SocialBundle() {
     
                       <Box flex={1.5} marginTop={2} width="100%" dir={isRtl ? 'rtl' : 'ltr'}>
                         <Grid container spacing={2} justifyContent="center">
-                          <Grid item xs={12} textAlign={isRtl ? 'right' : 'center'}>
+                          <Grid item xs={12} textAlign={isRtl ? 'center' : 'center'}>
                             <H4 style={{ marginTop: "16px" }}>
                               {bundle.bundle_title}
                               
@@ -468,7 +468,8 @@ export default function SocialBundle() {
                                 }}
                               >
                                 {/* {bundle.validity_type.charAt(0).toUpperCase() + bundle.validity_type.slice(1)} */}
-                                {t(`${(bundle.validity_type).toUpperCase()}`)}
+                                {bundle?.validity_type ? t(bundle.validity_type.toUpperCase()) : ""}
+
                               </span>
                             </H5>
                           </Grid>
@@ -647,7 +648,7 @@ export default function SocialBundle() {
               onClick={checkPIN}
               disabled={ number.length<3 }
             >
-              {t('VERIFY')}
+              {t('CONFIRM')}
             </Button>
           </Box>
           )}

@@ -10,7 +10,7 @@ const BreadcrumbRoot = styled(Box)({
 
 const BreadcrumbName = styled("h4")({
   margin: 0,
-  fontSize: "16px",
+  fontSize: "14px",
   paddingBottom: "1px",
   verticalAlign: "middle",
   textTransform: "capitalize"

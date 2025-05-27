@@ -612,7 +612,8 @@ export default function Bundle() {
                             fontSize: '10px' // Set font size to 12px
                           }}
                         >
-                          {bundle.validity_type.charAt(0).toUpperCase() + bundle.validity_type.slice(1)}
+                        {bundle?.validity_type ? t(bundle.validity_type.toUpperCase()) : ""}
+
                         </Typography>
                       </Box>
                       </Box>
@@ -745,7 +746,7 @@ export default function Bundle() {
     
                       <Box flex={1.5} marginTop={2} width="100%" dir={isRtl ? 'rtl' : 'ltr'}>
                         <Grid container spacing={1} justifyContent="center">
-                          <Grid item xs={12} textAlign={isRtl ? 'right' : 'center'}>
+                          <Grid item xs={12} textAlign={isRtl ? 'center' : 'center'}>
                             <H4 style={{ marginTop: "16px" }}>
                               {bundle.bundle_title}
                               
@@ -760,7 +761,9 @@ export default function Bundle() {
                                 }}
                               >
                                 {/* {bundle.validity_type.charAt(0).toUpperCase() + bundle.validity_type.slice(1)} */}
-                                {t(`${(bundle.validity_type).toUpperCase()}`)}
+                                {bundle?.validity_type ? t(bundle.validity_type.toUpperCase()) : ""}
+
+                                
                               </span></H5>
                           </Grid>
                         </Grid>
@@ -951,7 +954,7 @@ export default function Bundle() {
               onClick={checkPIN}
               disabled={!!phoneNumberError || !number }
             >
-              {t('VERIFY')}
+              {t('CONFIRM')}
             </Button>
            
             
