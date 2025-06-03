@@ -24,18 +24,22 @@ import {
   CircularProgress,
   useMediaQuery,
   CardContent,
-  Divider
+  Divider,
 } from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
-import DialpadIcon from '@mui/icons-material/Dialpad';
+import SearchIcon from "@mui/icons-material/Search";
+import DialpadIcon from "@mui/icons-material/Dialpad";
 import { H3, H4, H5, H6, Paragraph } from "app/components/Typography";
 import { useLocation } from "react-router-dom";
-import {getBundles} from '../../../redux/actions/bundleAction'
-import {placeOrder,confirmPin,clearMessages} from '../../../redux/actions/rechargeAction'
+import { getBundles } from "../../../redux/actions/bundleAction";
+import {
+  placeOrder,
+  confirmPin,
+  clearMessages,
+} from "../../../redux/actions/rechargeAction";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect,useState } from "react";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useTranslation } from "react-i18next";
 import Swal from "sweetalert2";
 
@@ -46,13 +50,13 @@ const CardHeader = styled(Box)(() => ({
   paddingRight: "24px",
   marginBottom: "12px",
   alignItems: "center",
-  justifyContent: "space-between"
+  justifyContent: "space-between",
 }));
 
 const Title = styled("span")(() => ({
   fontSize: "1rem",
   fontWeight: "500",
-  textTransform: "capitalize"
+  textTransform: "capitalize",
 }));
 
 const ProductTable = styled(Table)(() => ({
@@ -61,10 +65,10 @@ const ProductTable = styled(Table)(() => ({
     width: 50,
     height: 15,
     borderRadius: 500,
-    boxShadow: "0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)"
+    boxShadow: "0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)",
   },
   "& td": { borderBottom: "none" },
-  "& td:first-of-type": { paddingLeft: "16px !important" }
+  "& td:first-of-type": { paddingLeft: "16px !important" },
 }));
 
 const Small = styled("small")(({ bgcolor }) => ({
@@ -75,7 +79,7 @@ const Small = styled("small")(({ bgcolor }) => ({
   borderRadius: "4px",
   overflow: "hidden",
   background: bgcolor,
-  boxShadow: "0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)"
+  boxShadow: "0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)",
 }));
 
 const ImageListContainer = styled(Box)(() => ({
@@ -91,7 +95,6 @@ const ImageListContainer = styled(Box)(() => ({
     borderRadius: "4px",
     objectFit: "cover",
   },
-  
 }));
 
 const ImageContainer = styled(Box)(({ theme }) => ({
@@ -122,41 +125,50 @@ export default function SocialBundle() {
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const countryId = queryParams.get('countryId');
-  const categoryId = queryParams.get('categoryId');
-  const companyId=queryParams.get('companyId')
-  const [searchTag,setSearchTag]=useState("")
+  const countryId = queryParams.get("countryId");
+  const categoryId = queryParams.get("categoryId");
+  const companyId = queryParams.get("companyId");
+  const [searchTag, setSearchTag] = useState("");
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const [selectedBundle, setSelectedBundle] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [pin,setPin]=useState("")
-  const [number,setNumber]=useState("")
-  const { error,orderPlaced,message,loading } = useSelector((state) => state.rechargeReducer);
-  const {user_info}=useSelector((state)=>state.auth)
+  const [pin, setPin] = useState("");
+  const [number, setNumber] = useState("");
+  const { error, orderPlaced, message, loading } = useSelector(
+    (state) => state.rechargeReducer
+  );
+  const { user_info } = useSelector((state) => state.auth);
   const { t, i18n } = useTranslation();
-  const isRtl = i18n.language === "ar" || i18n.language === "fa" || i18n.language === "ps";
-  const [errorMessage,setErrorMessage]=useState("")
+  const isRtl =
+    i18n.language === "ar" || i18n.language === "fa" || i18n.language === "ps";
+  const [errorMessage, setErrorMessage] = useState("");
 
-
-
-
-  const dispatch=useDispatch()
-  const {bundleList,total_items}=useSelector((state)=>state.bundleListReducer)
+  const dispatch = useDispatch();
+  const { bundleList, total_items } = useSelector(
+    (state) => state.bundleListReducer
+  );
   const [visibleRows, setVisibleRows] = useState({});
 
-  
-
-
-  useEffect(()=>{
-    dispatch(getBundles(page+1,rowsPerPage,countryId,"",companyId,categoryId,searchTag))
-  },[dispatch,searchTag,page,rowsPerPage])
+  useEffect(() => {
+    dispatch(
+      getBundles(
+        page + 1,
+        rowsPerPage,
+        countryId,
+        "",
+        companyId,
+        categoryId,
+        searchTag
+      )
+    );
+  }, [dispatch, searchTag, page, rowsPerPage]);
 
   const handleVisibilityToggle = (index) => {
     setVisibleRows((prev) => ({
       ...prev,
-      [index]: !prev[index]
+      [index]: !prev[index],
     }));
   };
 
@@ -171,57 +183,51 @@ export default function SocialBundle() {
 
   const handleBundleSelect = (bundle) => {
     //if(number.length===0){
-      //toast.error(t('ENTER_YOUR_NUMBER'))
-      //return;
+    //toast.error(t('ENTER_YOUR_NUMBER'))
+    //return;
     //}
     //console.log(bundle)
-      setSelectedBundle(bundle);
-      setModalOpen(true);
-    
+    setSelectedBundle(bundle);
+    setModalOpen(true);
   };
 
   // useEffect(()=>{
   //   //console.log(selectedBundle)
   // },[selectedBundle])
 
+  //const handleCloseModal = () => setModalOpen(false);
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setErrorMessage("");
+    setNumber("");
+  };
 
+  const checkPIN = () => {
+    dispatch(confirmPin(pin, selectedBundle.id, number));
+  };
 
-   //const handleCloseModal = () => setModalOpen(false);
-   const handleCloseModal=()=>{
-    setModalOpen(false)
-    setErrorMessage("")
-    setNumber("")
-  }
-
-  const checkPIN=()=>{
-    dispatch(confirmPin(pin,selectedBundle.id,number))
-  }
-
-
-  useEffect(()=>{
-    if(message || error){
-    if(orderPlaced){
-      Swal.fire({
-        title: "Good job!",
-        text: message,
-        icon: "success"
-      });
-      dispatch(clearMessages())
-      handleCloseModal()
+  useEffect(() => {
+    if (message || error) {
+      if (orderPlaced) {
+        Swal.fire({
+          title: "Good job!",
+          text: message,
+          icon: "success",
+        });
+        dispatch(clearMessages());
+        handleCloseModal();
+      }
+      if (error) {
+        setErrorMessage(error);
+        dispatch(clearMessages());
+      }
     }
-    if(error){
-      setErrorMessage(error)
-      dispatch(clearMessages())
-    }
-    }
-  },[dispatch,orderPlaced,error,message])
+  }, [dispatch, orderPlaced, error, message]);
 
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
-
   return (
     <Card sx={{ pt: "20px", mb: 3 }}>
-      
       {/* <Paper elevation={5}>
         <Card sx={{ pt: "20px", mb: 3 }}>
           <CardHeader>
@@ -279,226 +285,276 @@ export default function SocialBundle() {
           </CardHeader>
         </Card>
       </Paper> */}
-      
-
-
-      
 
       <Box overflow="auto">
-
-            {isSmallScreen?(
-              <ProductTable sx={{ padding: "1px" }}>
-              <TableBody>
-                {bundleList.map((bundle, index) => (
-                  <Card key={index} sx={{ mb: 1,height:"70px",paddingBottom:"1px", opacity: 0.9}} onClick={() => handleBundleSelect(bundle)} >
-                    <CardContent sx={{ display: 'flex',justifyContent:'space-between', alignItems: 'center', gap: 1 }}>
-                      
-                      {/* Logo Section */}
-                      <Box sx={{flex:2.5,  display: 'flex', alignItems: 'center', gap: 2 }}>
-                        <Avatar src={bundle.service.company.company_logo} />
-                        {/* Bundle Info Section */}
-                      <Box 
-                        sx={{ 
-                          display: 'flex', 
-                          flexDirection: 'column', 
-                          gap: 0.1, 
-                          wordWrap: 'break-word', // Ensures text wraps to next line if too long
-                          overflow: 'hidden', // Prevents overflow
-                          textOverflow: 'ellipsis', // Adds ellipsis if content is too long
-                          whiteSpace: 'normal', // Allows wrapping of text
+        {isSmallScreen ? (
+          <ProductTable sx={{ padding: "1px" }}>
+            <TableBody>
+              {bundleList.map((bundle, index) => (
+                <Card
+                  key={index}
+                  sx={{
+                    mb: 1,
+                    height: "70px",
+                    paddingBottom: "1px",
+                    opacity: 0.9,
+                  }}
+                  onClick={() => handleBundleSelect(bundle)}
+                >
+                  <CardContent
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      gap: 1,
+                    }}
+                  >
+                    {/* Logo Section */}
+                    <Box
+                      sx={{
+                        flex: 2.5,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 2,
+                      }}
+                    >
+                      <Avatar src={bundle.service.company.company_logo} />
+                      {/* Bundle Info Section */}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: 0.1,
+                          wordWrap: "break-word", // Ensures text wraps to next line if too long
+                          overflow: "hidden", // Prevents overflow
+                          textOverflow: "ellipsis", // Adds ellipsis if content is too long
+                          whiteSpace: "normal", // Allows wrapping of text
                         }}
                       >
-                        <Typography 
-                          variant="body2" 
-                          sx={{ 
-                            fontWeight: 'bold', 
-                            textTransform: 'capitalize', 
-                            fontSize: '10px' // Set font size to 12px
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            fontWeight: "bold",
+                            textTransform: "capitalize",
+                            fontSize: "10px", // Set font size to 12px
                           }}
                         >
                           {bundle.bundle_title}
                         </Typography>
-                        <Typography 
-                          variant="caption" 
-                          sx={{ 
-                            textTransform: 'capitalize', 
-                            fontSize: '10px' // Set font size to 12px
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            textTransform: "capitalize",
+                            fontSize: "10px", // Set font size to 12px
                           }}
                         >
-                        {bundle?.validity_type ? t(bundle.validity_type.toUpperCase()) : ""}
+                          {bundle?.validity_type
+                            ? t(bundle.validity_type.toUpperCase())
+                            : ""}
+                        </Typography>
+                      </Box>
+                    </Box>
 
-                        </Typography>
-                      </Box>
-                      </Box>
-                      
-                      
-                      
-                      {/* Sell Price Section */}
-                      <Box 
-                        sx={{
-                          flex:1,
-                          display: 'flex', 
-                          flexDirection: 'column', 
-                          alignItems: 'center', 
-                          gap: 0.5,
-                          textOverflow: 'ellipsis', // Ensures that long text will be truncated with ellipsis
-                          overflow: 'hidden', // Prevents text overflow
-                          whiteSpace: 'nowrap', // Prevents wrapping of text
-                        }}
-                      >
-                        <Typography 
-                          variant="caption" 
-                          sx={{ 
-                            fontWeight: 'bold', 
-                            fontSize: '10px' // Set font size to 12px
-                          }}
-                        >
-                          {t('SELL')}
-                        </Typography>
-                        <Typography 
-                          variant="caption" 
-                          sx={{ 
-                            fontWeight: 'bold', 
-                            fontSize: '10px' // Set font size to 12px
-                          }}
-                        >
-                          {bundle.selling_price} {user_info.currency.code}
-                        </Typography>
-                      </Box>
-                      
-                      {/* Buy Price Section */}
-                      <Box 
-                        sx={{ 
-                          flex:1,
-                          display: 'flex', 
-                          flexDirection: 'column', 
-                          alignItems: 'center', 
-                          gap: 0.5,
-                          textOverflow: 'ellipsis', // Adds ellipsis for overflow
-                          overflow: 'hidden', // Hides overflow content
-                          whiteSpace: 'nowrap', // Prevents wrapping of text
-                        }}
-                      >
-                        <Typography 
-                          variant="caption" 
-                          sx={{ 
-                            fontWeight: 'bold', 
-                            fontSize: '10px' // Set font size to 12px
-                          }}
-                        >
-                          {t('BUY')}
-                        </Typography>
-                        <Typography 
-                          variant="caption" 
-                          sx={{ 
-                            fontWeight: 'bold', 
-                            fontSize: '10px' // Set font size to 12px
-                          }}
-                        >
-                          {visibleRows[index] ? `${bundle.buying_price} ${user_info.currency.code}` : "****"}
-                        </Typography>
-                      </Box>
-                      
-                      {/* Visibility Toggle Button */}
-                      <IconButton onClick={() => handleVisibilityToggle(index)}>
-                        {visibleRows[index] ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </CardContent>
-                  </Card>   
-                  ))}
-              </TableBody>
-            </ProductTable>
-            ):(
-            <Grid container spacing={2} dir={isRtl?'rtl':'ltr'}>
-              {bundleList.map((bundle, index) => (
-                <Grid key={index} item xs={12} md={6} lg={3} xl={3} sx={{ mt:"2px", transition: 'transform 0.3s', '&:hover': { transform: 'scale(1.05)' } }}>
-                  <Paper elevation={3}>
-                    <Card 
-                      sx={{ 
-                        maxHeight:"150px",
-                        minHeight:'150px',
-                        textAlign: "center", 
-                        padding: 2, 
-                        m: "1px", 
-                        display: 'flex', 
-                        flexDirection: 'row', 
-                        alignItems: 'center' ,
+                    {/* Sell Price Section */}
+                    <Box
+                      sx={{
+                        flex: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: 0.5,
+                        textOverflow: "ellipsis", // Ensures that long text will be truncated with ellipsis
+                        overflow: "hidden", // Prevents text overflow
+                        whiteSpace: "nowrap", // Prevents wrapping of text
                       }}
-                      onClick={() => handleBundleSelect(bundle)} 
                     >
-                      <ImageContainer flex={0.5}>
-                        <img 
-                          src={bundle.service.company.company_logo} 
-                          alt="Company Logo" 
-                          style={{
-                            borderRadius: '10px',
-                            maxWidth: "90%",
-                            maxHeight: "90%",
-                            objectFit: "contain",
-                            display: "block",
-                          }} 
-                        />
-                      </ImageContainer>
-
-                      <Divider
-                        orientation="vertical"
-                        flexItem
+                      <Typography
+                        variant="caption"
                         sx={{
-                          backgroundColor: 'black',  // Color of the line
-                          width: '1px',             // Thickness of the line
-                          marginX: '1px',               // Space around the line
+                          fontWeight: "bold",
+                          fontSize: "10px", // Set font size to 12px
+                        }}
+                      >
+                        {t("SELL")}
+                      </Typography>
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          fontWeight: "bold",
+                          fontSize: "10px", // Set font size to 12px
+                        }}
+                      >
+                        {bundle.selling_price} {user_info.currency.code}
+                      </Typography>
+                    </Box>
+
+                    {/* Buy Price Section */}
+                    <Box
+                      sx={{
+                        flex: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: 0.5,
+                        textOverflow: "ellipsis", // Adds ellipsis for overflow
+                        overflow: "hidden", // Hides overflow content
+                        whiteSpace: "nowrap", // Prevents wrapping of text
+                      }}
+                    >
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          fontWeight: "bold",
+                          fontSize: "10px", // Set font size to 12px
+                        }}
+                      >
+                        {t("BUY")}
+                      </Typography>
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          fontWeight: "bold",
+                          fontSize: "10px", // Set font size to 12px
+                        }}
+                      >
+                        {visibleRows[index]
+                          ? `${bundle.buying_price} ${user_info.currency.code}`
+                          : "****"}
+                      </Typography>
+                    </Box>
+
+                    {/* Visibility Toggle Button */}
+                    <IconButton onClick={() => handleVisibilityToggle(index)}>
+                      {visibleRows[index] ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </CardContent>
+                </Card>
+              ))}
+            </TableBody>
+          </ProductTable>
+        ) : (
+          <Grid container spacing={2} dir={isRtl ? "rtl" : "ltr"}>
+            {bundleList.map((bundle, index) => (
+              <Grid
+                key={index}
+                item
+                xs={12}
+                md={6}
+                lg={3}
+                xl={3}
+                sx={{
+                  mt: "2px",
+                  transition: "transform 0.3s",
+                  "&:hover": { transform: "scale(1.05)" },
+                }}
+              >
+                <Paper elevation={3}>
+                  <Card
+                    sx={{
+                      maxHeight: "150px",
+                      minHeight: "150px",
+                      textAlign: "center",
+                      padding: 2,
+                      m: "1px",
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                    onClick={() => handleBundleSelect(bundle)}
+                  >
+                    <ImageContainer flex={0.5}>
+                      <img
+                        src={bundle.service.company.company_logo}
+                        alt="Company Logo"
+                        style={{
+                          borderRadius: "10px",
+                          maxWidth: "90%",
+                          maxHeight: "90%",
+                          objectFit: "contain",
+                          display: "block",
                         }}
                       />
-    
-                      <Box flex={1.5} marginTop={2} width="100%" dir={isRtl ? 'rtl' : 'ltr'}>
-                        <Grid container spacing={2} justifyContent="center">
-                          <Grid item xs={12} textAlign={isRtl ? 'center' : 'center'}>
-                            <H4 style={{ marginTop: "16px" }}>
-                              {bundle.bundle_title}
-                              
-                            </H4>
-                            <H5>
-                            <span 
-                                style={{
-                                  marginRight: isRtl ? '4px' : '0', 
-                                  marginLeft: isRtl ? '0' : '4px', 
-                                  fontWeight: "normal", 
-                                  marginTop: isRtl ? '0' : '0', 
-                                  marginBottom: '8px' // Add margin to create space
-                                }}
-                              >
-                                {/* {bundle.validity_type.charAt(0).toUpperCase() + bundle.validity_type.slice(1)} */}
-                                {bundle?.validity_type ? t(bundle.validity_type.toUpperCase()) : ""}
+                    </ImageContainer>
 
-                              </span>
-                            </H5>
-                          </Grid>
+                    <Divider
+                      orientation="vertical"
+                      flexItem
+                      sx={{
+                        backgroundColor: "black", // Color of the line
+                        width: "1px", // Thickness of the line
+                        marginX: "1px", // Space around the line
+                      }}
+                    />
+
+                    <Box
+                      flex={1.5}
+                      marginTop={2}
+                      width="100%"
+                      dir={isRtl ? "rtl" : "ltr"}
+                    >
+                      <Grid container spacing={2} justifyContent="center">
+                        <Grid
+                          item
+                          xs={12}
+                          textAlign={isRtl ? "center" : "center"}
+                        >
+                          <H4 style={{ marginTop: "16px" }}>
+                            {bundle.bundle_title}
+                          </H4>
+                          <H5>
+                            <span
+                              style={{
+                                marginRight: isRtl ? "4px" : "0",
+                                marginLeft: isRtl ? "0" : "4px",
+                                fontWeight: "normal",
+                                marginTop: isRtl ? "0" : "0",
+                                marginBottom: "8px", // Add margin to create space
+                              }}
+                            >
+                              {/* {bundle.validity_type.charAt(0).toUpperCase() + bundle.validity_type.slice(1)} */}
+                              {bundle?.validity_type
+                                ? t(bundle.validity_type.toUpperCase())
+                                : ""}
+                            </span>
+                          </H5>
                         </Grid>
-    
-                        <Grid container spacing={1} padding={1}>
-                          <Grid item xs={6} textAlign={isRtl ? 'right' : 'left'}>
-                            <H6 style={{color:'green',fontSize:'10px',whiteSpace:'nowrap',overflow:'hidden'}}>
-                              <strong>{t('SELL')} :</strong> {bundle.selling_price} {user_info.currency.code}
-                            </H6>
-                          </Grid>
-                          <Grid item xs={6} textAlign={isRtl ? 'left' : 'right'}>
-                            <H6 style={{color:'red',fontSize:'10px',whiteSpace:'nowrap',overflow:'hidden'}}>
-                              <strong>{t('BUY')} :</strong> {bundle.buying_price} {user_info.currency.code}
-                            </H6>
-                          </Grid>
+                      </Grid>
+
+                      <Grid container spacing={1} padding={1}>
+                        <Grid item xs={6} textAlign={isRtl ? "right" : "left"}>
+                          <H6
+                            style={{
+                              color: "green",
+                              fontSize: "10px",
+                              whiteSpace: "nowrap",
+                              overflow: "hidden",
+                            }}
+                          >
+                            <strong>{t("SELL")} :</strong>{" "}
+                            {bundle.selling_price} {user_info.currency.code}
+                          </H6>
                         </Grid>
-                      </Box>
-    
-    
-    
-                    </Card>
-                  </Paper>
-                  
-    
-                </Grid>
-              ))}
-            </Grid>
-          )}
+                        <Grid item xs={6} textAlign={isRtl ? "left" : "right"}>
+                          <H6
+                            style={{
+                              color: "red",
+                              fontSize: "10px",
+                              whiteSpace: "nowrap",
+                              overflow: "hidden",
+                            }}
+                          >
+                            <strong>{t("BUY")} :</strong> {bundle.buying_price}{" "}
+                            {user_info.currency.code}
+                          </H6>
+                        </Grid>
+                      </Grid>
+                    </Box>
+                  </Card>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        )}
 
         <TablePagination
           sx={{ px: 2 }}
@@ -511,7 +567,7 @@ export default function SocialBundle() {
           onRowsPerPageChange={handleChangeRowsPerPage}
           nextIconButtonProps={{ "aria-label": "Next Page" }}
           backIconButtonProps={{ "aria-label": "Previous Page" }}
-      />
+        />
       </Box>
 
       {/* Modal for PIN */}
@@ -529,71 +585,98 @@ export default function SocialBundle() {
             borderRadius: 2,
           }}
         >
-          <Typography variant="h6" mb={2}>{t('CONFIRM_YOUR_PIN')}</Typography>
+          <Typography variant="h6" mb={2}>
+            {t("CONFIRM_YOUR_PIN")}
+          </Typography>
 
           {selectedBundle && (
-                      <Box sx={{
-                        border: '1px solid black', 
-                          borderRadius: '8px',      
-                          padding: '5px',
-                          marginBottom:'5px'
-                        }}>
-                        <Box display="flex" justifyContent="space-between" my={1}>
-                          <Label sx={{ color: "black" }}>{t('BUNDLE_TITLE')}</Label>
-                          <Value>{selectedBundle.bundle_title}</Value>
-                        </Box>
-                        <Box display="flex" justifyContent="space-between" my={1}>
-                          <Label sx={{ color: "black" }}>{t('VALIDITY_TYPE')}</Label>
-                          <Value>{selectedBundle.validity_type}</Value>
-                        </Box>
-                        <Box display="flex" justifyContent="space-between" my={1}>
-                          <Label sx={{ color: "black" }}>{t('SELLING_PRICE')}</Label>
-                          <Value>{user_info.currency.code} {selectedBundle.selling_price}</Value>
-                        </Box>
-                        <Box display="flex" justifyContent="space-between" my={1}>
-                        <Label sx={{ color: "black" }}>{t('COMPANY')}</Label>
-                          <img src={selectedBundle?.service?.company?.company_logo} width="32px" height="32px" alt="" />
-                        </Box>
-                      </Box>
-                    )}
-          
-          <TextField
-                  type="number"
-                  margin="dense"
-                  label={t('ENTER_YOUR_NUMBER')}
-                  variant="outlined"
-                  fullWidth 
-                  value={number}
-                  onChange={(e) => setNumber(e.target.value)}
-                  required
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <DialpadIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                  sx={{
-                    '& input[type=number]': {
-                      // Hides the spinner in Chrome, Safari, Edge, and other WebKit browsers
-                      '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
-                        WebkitAppearance: 'none',
-                        margin: 0,
-                      },
-                      // Hides the spinner in Firefox
-                      MozAppearance: 'textfield',
-                    },
-                  }}
+            <Box
+              sx={{
+                border: "1px solid black",
+                borderRadius: "8px",
+                padding: "5px",
+                marginBottom: "5px",
+              }}
+            >
+              <Box display="flex" justifyContent="space-between" my={1}>
+                <Label sx={{ color: "black" }}>{t("BUNDLE_TITLE")}</Label>
+                <Value>{selectedBundle.bundle_title}</Value>
+              </Box>
+              <Box display="flex" justifyContent="space-between" my={1}>
+                <Label sx={{ color: "black" }}>{t("VALIDITY_TYPE")}</Label>
+                <Value>{selectedBundle.validity_type}</Value>
+              </Box>
+              <Box display="flex" justifyContent="space-between" my={1}>
+                <Label sx={{ color: "black" }}>{t("SELLING_PRICE")}</Label>
+                <Value>
+                  {user_info.currency.code} {selectedBundle.selling_price}
+                </Value>
+              </Box>
+              <Box display="flex" justifyContent="space-between" my={1}>
+                <Label sx={{ color: "black" }}>{t("COMPANY")}</Label>
+                <img
+                  src={selectedBundle?.service?.company?.company_logo}
+                  width="32px"
+                  height="32px"
+                  alt=""
                 />
+              </Box>
+            </Box>
+          )}
+
+          {/* <TextField
+            type="number"
+            margin="dense"
+            label={t("ENTER_YOUR_NUMBER")}
+            variant="outlined"
+            fullWidth
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+            required
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <DialpadIcon />
+                </InputAdornment>
+              ),
+            }}
+            sx={{
+              "& input[type=number]": {
+                // Hides the spinner in Chrome, Safari, Edge, and other WebKit browsers
+                "&::-webkit-outer-spin-button, &::-webkit-inner-spin-button": {
+                  WebkitAppearance: "none",
+                  margin: 0,
+                },
+                // Hides the spinner in Firefox
+                MozAppearance: "textfield",
+              },
+            }}
+          /> */}
+          <TextField
+            margin="dense"
+            label={t("ENTER_YOUR_NUMBER")}
+            variant="outlined"
+            fullWidth
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+            required
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <DialpadIcon />
+                </InputAdornment>
+              ),
+            }}
+            
+          />
 
           {/* Input Box */}
           <TextField
-        
             fullWidth
-            label={t('ENTER_YOUR_PIN')}
+            label={t("ENTER_YOUR_PIN")}
             variant="outlined"
             sx={{ mt: 2 }}
-            onChange={(e)=>setPin(e.target.value)}
+            onChange={(e) => setPin(e.target.value)}
             inputProps={{
               maxLength: 4,
             }}
@@ -607,54 +690,54 @@ export default function SocialBundle() {
           />
 
           {errorMessage && (
-          <Typography variant="body2" color="error" sx={{ mt: 1,mb:1 }}>
-            {errorMessage}
-          </Typography>
-        )}
+            <Typography variant="body2" color="error" sx={{ mt: 1, mb: 1 }}>
+              {errorMessage}
+            </Typography>
+          )}
           {/* Buttons */}
-          {loading? (
-            <Box 
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%", // or a fixed height if needed
-              mt: 3
-            }}
+          {loading ? (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100%", // or a fixed height if needed
+                mt: 3,
+              }}
             >
-            <CircularProgress />
-          </Box>
-          ):(
-          <Box
-            sx={{ 
-              display: "flex", 
-              justifyContent: isRtl ? "space-between" : "space-between", // Adjusted based on direction
-              mt: 3,
-              flexDirection: isRtl ? "row-reverse" : "row" // Reverse the order of buttons in RTL
-            }}
-            dir={isRtl ? "rtl" : "ltr"}
-          >
-            <Button
-              variant="outlined"
-              color="secondary"
-              onClick={handleCloseModal}
+              <CircularProgress />
+            </Box>
+          ) : (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: isRtl ? "space-between" : "space-between", // Adjusted based on direction
+                mt: 3,
+                flexDirection: isRtl ? "row-reverse" : "row", // Reverse the order of buttons in RTL
+              }}
+              dir={isRtl ? "rtl" : "ltr"}
             >
-              {t('CANCEL')}
-            </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                onClick={handleCloseModal}
+              >
+                {t("CANCEL")}
+              </Button>
 
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={checkPIN}
-              disabled={ number.length<3 }
-            >
-              {t('CONFIRM')}
-            </Button>
-          </Box>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={checkPIN}
+                disabled={number.length < 3}
+              >
+                {t("CONFIRM")}
+              </Button>
+            </Box>
           )}
         </Box>
       </Modal>
-      <ToastContainer/>
+      <ToastContainer />
     </Card>
   );
 }
