@@ -69,11 +69,11 @@ export default function PaginationTable() {
 
   const getStatusInfo = (status) => {
     switch (status) { 
-      case 0:
+      case "0":
         return { label: t("PENDING"), color: "orange", icon: <HourglassEmptyIcon fontSize="small" color="action" /> };
-      case 1:
+      case "1":
         return { label: t("CONFIRMED"), color: "green", icon: <CheckCircleIcon fontSize="small" color="success" /> };
-      case 2:
+      case "2":
         return { label: t("REJECTED"), color: "red", icon: <ErrorOutlineIcon fontSize="small" color="error" /> };
       default:
         return { label: t("PENDING"), color: "orange", icon: <HourglassEmptyIcon fontSize="small" color="action" /> };

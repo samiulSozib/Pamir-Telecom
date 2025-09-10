@@ -291,9 +291,9 @@ export default function TopSellingTable() {
             variant="caption"
             sx={{ fontWeight: "bold", fontSize: { xs: "10px", sm: "12px" } }}
           >
-            {order.status === 0
+            {order.status == "0"
               ? t("PENDING")
-              : order.status === 1
+              : order.status == "1"
               ? t("CONFIRMED")
               : t("REJECTED")}
           </Typography>
