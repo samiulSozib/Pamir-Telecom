@@ -124,7 +124,7 @@ export default function InfoModal1({
 
   const getStatusLabel = (status) => {
     switch (status) {
-      case 0:
+      case "0":
         return (
           <>
             <Small color="#f0ad4e" fontWeight="900">
@@ -132,7 +132,7 @@ export default function InfoModal1({
             </Small>
           </>
         );
-      case 1:
+      case "1":
         return (
           <>
             <Small color="#5cb85c" fontWeight="900">
@@ -140,7 +140,7 @@ export default function InfoModal1({
             </Small>
           </>
         );
-      case 2:
+      case "2":
         return (
           <>
             <Small color="#d9534f" fontWeight="900">
@@ -234,7 +234,7 @@ export default function InfoModal1({
               {orderDetails ? getStatusLabel(orderDetails.status) : "Info"}
             </StatusButton>
           </Box>
-          {orderDetails && orderDetails.status === 2 && (
+          {orderDetails && orderDetails.status === "2" && (
             <StatusText>{orderDetails.reject_reason}</StatusText>
           )}
 

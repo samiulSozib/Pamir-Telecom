@@ -91,7 +91,7 @@ export default function InfoModal({ open, onClose, orderDetails, currency_prefer
 
   const getStatusLabel = (status) => {
     switch (status) {
-      case 0:
+      case "0":
         return (
           <>
             <HeaderIcon>
@@ -100,7 +100,7 @@ export default function InfoModal({ open, onClose, orderDetails, currency_prefer
             <Small bgcolor="#f0ad4e">{t('PENDING')}</Small>
           </>
         );
-      case 1:
+      case "1":
         return (
           <>
             <HeaderIcon>
@@ -109,7 +109,7 @@ export default function InfoModal({ open, onClose, orderDetails, currency_prefer
             <Small bgcolor="#5cb85c">{t('CONFIRMED')}</Small>
           </>
         );
-      case 2:
+      case "2":
         return (
           <>
             <HeaderIcon>
@@ -217,7 +217,7 @@ export default function InfoModal({ open, onClose, orderDetails, currency_prefer
           <DialogTitle>
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center">
               {orderDetails ? getStatusLabel(orderDetails.status) : "Info"}
-              {orderDetails && orderDetails.status === 2 && (
+              {orderDetails && orderDetails.status === "2" && (
                 <Typography variant="body2" color="textSecondary" gutterBottom sx={{ mt: 2 }}>
                     {orderDetails.reject_reason}
                 </Typography>
